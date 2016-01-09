@@ -881,3 +881,13 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 
 
+/*custom*/
+div#wrap {
+    background: rgba(12, 1, 1, 0.78);
+}
+body{
+    color:#FD0202;
+}
+.count-container{
+    border-color: red;
+}

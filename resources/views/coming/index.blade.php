@@ -14,13 +14,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Apple Touch Icons -->
-        <link rel="apple-touch-icon" sizes="144x144" href="images/icons/apple-touch-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="images/icons/apple-touch-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="images/icons/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+    
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="images/icons/favicon.ico">
+        <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicons/favicon-194x194.png" sizes="194x194">
+        <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/favicons/manifest.json">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+        <meta name="theme-color" content="#ffffff">
 
         <!-- Google fonts -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
@@ -55,7 +69,7 @@
             <!-- Begin header section -->
             <header role="banner">
                 <div class="container-full">
-                    <img src="/coming/images/visio-logo.png" alt="Visio" width="65" height="15">
+                    <img src="/coming/images/logo_1.png" alt="Warmup"  height="30">
                     <div class="dropdown-panel">
                         <div class="dropdown-panel-handle"><i class="fa fa-bars"></i>
                             <ul>
@@ -78,7 +92,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12">
-                                <h1>Coming Soon</h1>
+                                <h4 class='text-center'>Sua nova forma de comprar bebidas</h4>
+                                <h1>Em Breve</h1>
                             </div>
                         </div>
                         <div class="row">
@@ -109,7 +124,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row subscribe">
+                     {{--    <div class="row subscribe">
                             <div class="col-xs-12">
                                 <div class="form">
                                     <h2>Subscribe and be the first to know</h2>
@@ -131,7 +146,7 @@
                                 <h2>Thank you! You have been subscribed</h2>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </section>
