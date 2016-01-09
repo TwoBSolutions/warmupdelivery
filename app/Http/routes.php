@@ -12,6 +12,10 @@
 */
 
 Route::get('/', function () {
+    return view('coming.index');
+});
+
+Route::get('/site', function () {
     return view('site.home');
 });
 

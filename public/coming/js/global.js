@@ -34,11 +34,11 @@ $(window).load(function () {
 (function ($) {
      "use strict";
     // Background image
-    $.backstretch("images/background/1.jpg");
+    $.backstretch("/coming/images/background/1.jpg");
 
     // date Format: mm/dd/yyyy
     $('.countdown').downCount({
-        date: '5/27/2015'
+        date: '1/20/2016'
     });
 
     // Dropdown hover
