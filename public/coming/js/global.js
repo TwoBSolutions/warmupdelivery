@@ -34,7 +34,7 @@ $(window).load(function () {
 (function ($) {
      "use strict";
     // Background image
-    $.backstretch("/coming/images/background/1.jpg");
+    $.backstretch("/coming/images/background/2.png");
 
     // date Format: mm/dd/yyyy
     $('.countdown').downCount({
