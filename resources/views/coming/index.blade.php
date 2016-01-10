@@ -6,9 +6,9 @@
 
         <title>Warmup Delivery</title>
     
-        <meta name="description" content="Your description here"/>
-        <meta name="keywords" content="Your keywords here" />
-        <meta name="author" content="Your author name here" />
+       <meta name="keywords" content="Delivery, Bebidas, Rio de Janeiro, App, Aplicativo" />
+        <meta name="description" content="Warmup - Seu Delivery de Bebidas no Rio de Janeiro">
+        <meta name="author" content="jeandro.couto@gmail.com">
 
         <!-- Mobile specific -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

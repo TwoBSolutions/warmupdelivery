@@ -1,1 +1,16 @@
 /* Add here all your CSS customizations */
+ul.nav.nav-pills {
+    margin-top: 15px;
+}
+.logo-brands .owl-item {
+    padding: 5px;
+   
+    height: 120px;
+    overflow: hidden;
+}
+
+.logo-brands .owl-item img {
+    width: auto;
+    margin: auto;
+    max-height: 110px;
+}
