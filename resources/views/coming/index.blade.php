@@ -67,7 +67,7 @@
         <div id="wrap">
             
             <!-- Begin header section -->
-            <header role="banner">
+          {{--   <header role="banner">
                 <div class="container-full">
                     <img src="/coming/images/logo_1.png" alt="Warmup"  height="30">
                     <div class="dropdown-panel">
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-            </header>
+            </header> --}}
             <!-- End header section -->
 
             <div id="content-area">
@@ -90,12 +90,12 @@
             <section class="panel-countdown">
                 <div id="countdown_dashboard">
                     <div class="container">
-                        <div class="row">
+                       {{--  <div class="row">
                             <div class="col-xs-12">
                                 <h4 class='text-center'>Sua nova forma de comprar bebidas</h4>
                                 <h1>Em Breve</h1>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row">
                            <div class="countdown">
                                 <div class="col-xs-6 col-sm-3 col-md-3 text-center">
@@ -124,6 +124,7 @@
                                 </div>
                             </div>
                         </div>
+                      
                      {{--    <div class="row subscribe">
                             <div class="col-xs-12">
                                 <div class="form">
@@ -150,6 +151,9 @@
                     </div>
                 </div>
             </section>
+              <div class="logobig">
+                            <img src="/coming/images/logo_3.png" alt="">
+                        </div>
             <!-- End countdown section -->
 
             <!-- Begin about section -->
