@@ -6,8 +6,7 @@
 								<img src="/site/img/logo_3.png" alt="" height="150" style="margin:30px 0">
 							</h2>
 							<p class="lead">
-								Que tal pedir aquela bebidas e os petiscos que estão acabando apenas usando o smartphone?
-								User o <strong>WARMUP</strong>!! entregamos onde você estiver.
+								Compre aquelas bebidas e conveniências usando apenas o smartphone? <strong>WARMUP</strong>!! 
 							</p>
 						</div>
 					</div>
