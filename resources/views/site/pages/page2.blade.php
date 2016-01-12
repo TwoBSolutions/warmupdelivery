@@ -41,7 +41,7 @@
 											</div>
 											<div class="feature-box-info">
 												<h4 class="mb-none">WARMUP MUSIC</h4>
-												<p class="tall">Seu esquenta fica muito melhor com aquele SET super foda!! temos parcerias com grandes DJs, Baixe o App WARMUP e deixe tudo com a gente.</p>
+												<p class="tall">Seu esquenta fica muito melhor com aquele SET super foda!! temos parcerias com os melhores Djs Cariocas, Baixe o App WARMUP e deixe tudo com a gente.</p>
 											</div>
 										</div>
 									</div>
@@ -61,7 +61,7 @@
 											</div>
 											<div class="feature-box-info">
 												<h4 class="mb-none">Pagamento</h4>
-												<p class="tall">Você pode pagar diretamente pelo aplicativo, ou até mesmo em dinheiro para nosso entregador!, você ainda pode dividir sua comprar com seus amigos!!</p>
+												<p class="tall">Você pode pagar diretamente pelo aplicativo, ou até mesmo em dinheiro para nosso entregador, você ainda pode dividir sua comprar com seus amigos!!</p>
 											</div>
 										</div>
 									</div>
