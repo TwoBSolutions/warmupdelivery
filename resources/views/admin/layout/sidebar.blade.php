@@ -213,6 +213,26 @@
                     </ul>
                 </li>
                 
+                 <li class="nav-parent">
+                    <a>
+
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                    <span>Fornecedores</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a href="pages-signup.html">
+                            Listar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages-signup.html">
+                            Novo
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
                 
                
             </ul>
