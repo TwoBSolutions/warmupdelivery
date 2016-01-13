@@ -1,5 +1,5 @@
 <div class="container">
-					<div class="row">
+					{{-- <div class="row">
 						<div class="counters">
 							<div class="col-md-3 col-sm-6">
 								<div class="counter counter-dark">
@@ -31,7 +31,7 @@
 							</div>
 						</div>
 					</div>
-
+ --}}
 					<hr class="tall">
 
 					<div class="row">
