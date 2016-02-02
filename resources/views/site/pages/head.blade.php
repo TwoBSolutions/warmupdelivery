@@ -21,7 +21,7 @@
 												<a href="contact-us.html"><i class="fa fa-angle-right"></i> Contato</a>
 											</li>
 											<li>
-												<span class="ws-nowrap"><i class="fa fa-phone"></i> (21) 456-789</span>
+												<span class="ws-nowrap"><i class="fa fa-phone"></i> (21) 3208 8980</span>
 											</li>
 										</ul>
 									</nav>

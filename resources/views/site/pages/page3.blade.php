@@ -55,7 +55,7 @@
 
 					<div class="row">
 						<div class="col-md-7">
-							<h2 class="mt-xl">Promoções exclusivas <strong>WARMUP</strong></h2>
+							<h2 class="mt-xl">Promoções exclusivas <img class="logosmall" src="/site/img/logo_1.png" height="40"></img></h2>
 							<p class="lead">
 								Dentro do nosso aplicativo, temos as melhores promoções! 
 							</p>

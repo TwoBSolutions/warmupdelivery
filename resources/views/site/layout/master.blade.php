@@ -112,16 +112,17 @@
 
 				<section class="call-to-action call-to-action-default with-button-arrow call-to-action-in-footer">
 					<div class="container">
-						<div class="row">
+						<div class="row text-center">
 							<div class="col-md-12">
-								<div class="call-to-action-content">
-									<h3>Tudo que <strong>precisa</strong> para garantir o sucesso de sua <strong>Festa!!</strong> WARMUP!</h3>
-									<p>A <strong>Melhor</strong> opção para comprar Bebidas!</p>
+								<div class="">
+									<h3>Tudo que <strong>precisa</strong> para garantir o sucesso de sua <strong>Festa!!</strong>!</h3>
+									<p>A <strong>Melhor</strong> opção para comprar conveniencias na <strong>madrugada</strong>!</p>
 								</div>
-								<div class="call-to-action-btn">
-									<a href="http://themeforest.net/item/porto-responsive-html5-template/4106987" target="_blank" class="btn btn-lg btn-primary">Baixe Agora!!</a><span class="arrow hlb hidden-xs hidden-sm hidden-md" data-appear-animation="rotateInUpLeft" style="top: -12px;"></span>
-								</div>
+								
 							</div>
+
+									<a href="http://themeforest.net/item/porto-responsive-html5-template/4106987" target="_blank" class="btn btn-lg btn-primary">Baixe Agora!!</a><span class="arrow hlb hidden-xs hidden-sm hidden-md" data-appear-animation="rotateInUpLeft" style="top: -12px;"></span>
+								
 						</div>
 					</div>
 				</section>
