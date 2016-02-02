@@ -12,7 +12,17 @@ class CreatePromocao extends Migration
      */
     public function up()
     {
-        //
+         Schema::create('promocao', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('descricao');
+            $table->integer('desconto');
+            $table->string('tipo');
+            $table->integer('status');
+            $table->integer('id_preco');
+            $table->date('data_inicio');
+            $table->date('data_fim');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +32,6 @@ class CreatePromocao extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('promocao');
     }
 }

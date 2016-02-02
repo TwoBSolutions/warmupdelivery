@@ -22,7 +22,6 @@ class CreateEndereco extends Migration
             $table->string('referencia');
             $table->integer('id_pessoa');
             $table->integer('status');
-
             $table->timestamps();
         });
     }

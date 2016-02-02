@@ -12,7 +12,14 @@ class CreateOrderCobranca extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('order_cobranca', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('id_order');
+            $table->integer('id_pessoa');
+            $table->float('valor');
+            $table->integer('status');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +29,6 @@ class CreateOrderCobranca extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('order_cobranca');
     }
 }

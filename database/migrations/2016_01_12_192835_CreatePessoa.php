@@ -37,6 +37,6 @@ class CreatePessoa extends Migration
      */
     public function down()
     {
-        Schema::drop('pessoas')
+        Schema::drop('pessoas');
     }
 }

@@ -12,7 +12,14 @@ class CreateOrder extends Migration
      */
     public function up()
     {
-        //
+       Schema::create('order', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('id_pessoa');
+            $table->integer('id_endereco');
+            $table->string('observação');
+            $table->integer('status');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +29,6 @@ class CreateOrder extends Migration
      */
     public function down()
     {
-        //
+       Schema::drop('order');
     }
 }

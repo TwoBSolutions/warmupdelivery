@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AgendamentoEntrega' => $baseDir . '/database/migrations/2016_02_02_173240_agendamento_entrega.php',
+    'Configuracoes' => $baseDir . '/database/migrations/2016_02_02_173304_configuracoes.php',
     'CreateCategorias' => $baseDir . '/database/migrations/2016_01_12_193039_CreateCategorias.php',
     'CreateEndereco' => $baseDir . '/database/migrations/2016_01_12_192908_CreateEndereco.php',
     'CreateEventos' => $baseDir . '/database/migrations/2016_01_12_193109_CreateEventos.php',
@@ -487,6 +489,7 @@ return array(
     'PHP_Token_XOR_EQUAL' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD_FROM' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
+    'Precos' => $baseDir . '/database/migrations/2016_02_02_175811_precos.php',
     'SebastianBergmann\\Comparator\\ArrayComparator' => $vendorDir . '/sebastian/comparator/src/ArrayComparator.php',
     'SebastianBergmann\\Comparator\\Comparator' => $vendorDir . '/sebastian/comparator/src/Comparator.php',
     'SebastianBergmann\\Comparator\\ComparisonFailure' => $vendorDir . '/sebastian/comparator/src/ComparisonFailure.php',

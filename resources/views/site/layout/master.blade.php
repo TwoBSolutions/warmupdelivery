@@ -43,32 +43,18 @@
 						<div class="row">
 							<div class="col-md-10 col-md-offset-1">
 								<div class="owl-carousel owl-theme nav-bottom rounded-nav" data-plugin-options='{"items": 1, "loop": false}'>
+									
 									<div>
 										<div class="col-md-12">
 											<div class="testimonial testimonial-style-2 testimonial-with-quotes mb-none">
-												<div class="testimonial-author">
+												{{-- <div class="testimonial-author">
 													<img src="/site/img/clients/client-1.jpg" class="img-responsive img-circle" alt="">
-												</div>
+												</div> --}}
 												<blockquote>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta, tincidunt turpis at, interdum tortor. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce ante tellus, convallis non consectetur sed, pharetra nec ex.</p>
+													<p>Nossa missão é garantir a excelência na entrega de produtos, oferecendo um serviço de delivery com rapidez, qualidade  e preço justo. Nossa atividade está voltada principalmente aos jovens cariocas que frequentam festas e que sem reúnem para confraternizar, por isso nosso aplicativo possui conteúdos específicos e diferenciados como uma aba com os melhores eventos da cidade e playlists para deixar os encontros e festas ainda melhores.</p>
 												</blockquote>
 												<div class="testimonial-author">
-													<p><strong>John Smith</strong><span>CEO & Founder - Okler</span></p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div>
-										<div class="col-md-12">
-											<div class="testimonial testimonial-style-2 testimonial-with-quotes mb-none">
-												<div class="testimonial-author">
-													<img src="/site/img/clients/client-1.jpg" class="img-responsive img-circle" alt="">
-												</div>
-												<blockquote>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta, tincidunt turpis at, interdum tortor. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-												</blockquote>
-												<div class="testimonial-author">
-													<p><strong>John Smith</strong><span>CEO & Founder - Okler</span></p>
+													
 												</div>
 											</div>
 										</div>

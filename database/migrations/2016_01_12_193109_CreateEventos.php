@@ -12,7 +12,16 @@ class CreateEventos extends Migration
      */
     public function up()
     {
-        //
+         Schema::create('eventos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('titulo');
+            $table->string('descricao');
+            $table->timestamp('data');
+            $table->string('id_album');
+            $table->string('video');
+            $table->integer('status');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +31,6 @@ class CreateEventos extends Migration
      */
     public function down()
     {
-        //
+      Schema::drop('eventos');
     }
 }
