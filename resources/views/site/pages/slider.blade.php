@@ -38,7 +38,7 @@
 									data-transform_in="y:[100%];s:500;"
 									data-transform_out="opacity:0;s:500;"
 									style="z-index: 5"
-									data-mask_in="x:0px;y:0px;">DE COMPRAR BEBIDAS</div>
+									data-mask_in="x:0px;y:0px;">DE COMPRAR CONVENIÊNCIAS</div>
 
 								<div class="tp-caption bottom-label"
 									data-x="center" data-hoffset="0"
