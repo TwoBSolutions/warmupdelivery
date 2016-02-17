@@ -47,7 +47,7 @@
 								<div class="col-md-2">
 								<ul class="social-icons">
 								<li class="social-icons-facebook"><a href="https://www.facebook.com/warmupdelivery/?fref=ts" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-								<li class="social-icons-instagran"><a href="http://www.instagram.com/" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
+								<li class="social-icons-instagran"><a href="https://www.instagram.com/warmupdelivery/" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
 							
 							</ul>
 						</div>
