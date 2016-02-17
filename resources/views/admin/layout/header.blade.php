@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="fixed">
+<html class="fixed" ng-app="Painel">
 	<head>
 
 		<!-- Basic -->

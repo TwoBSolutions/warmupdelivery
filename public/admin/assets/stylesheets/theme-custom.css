@@ -2,3 +2,22 @@
 .page-header h2 {
     border-bottom-color: #E67C49;
 }
+td.img_prev_cat img {
+    width: 90px;
+}
+.sts_on {
+    color: #0D880C;
+    font-size: 15px;
+    text-align: center;
+    margin: auto;
+   
+    /* background: #ccc; */
+}
+.sts_off {
+    color: red;
+    font-size: 15px;
+    text-align: center;
+    margin: auto;
+   
+    /* background: #ccc; */
+}

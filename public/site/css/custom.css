@@ -14,3 +14,15 @@ ul.nav.nav-pills {
     margin: auto;
     max-height: 110px;
 }
+section.section p {
+    color: #333;
+}
+section.section {
+    background: #B5B5B5;
+    border-top: 5px solid #f1f1f1;
+    margin: 30px 0;
+    padding: 50px 0;
+}
+.testimonial.testimonial-style-2.testimonial-with-quotes.mb-none p {
+    color: #000;
+}

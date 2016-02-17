@@ -36,24 +36,35 @@
 								<h4>Contato</h4>
 								<ul class="contact">
 									<li><p><i class="fa fa-map-marker"></i> <strong>Endereço:</strong> Rio de Janeiro</p></li>
-									<li><p><i class="fa fa-phone"></i> <strong>Telefone:</strong> (21) 3208 8980</p></li>
+									<li><p><i class="fa fa-phone"></i> <strong>Telefone:</strong> (21)  96804-9748</p></li>
 									<li><p><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:contato@warmupdelivery.com.br">contato@warmupdelivery.com.br</a></p></li>
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-4">
 							<h4>Redes Sociais</h4>
-							<ul class="social-icons">
-								<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+							<div class="row">
+								<div class="col-md-2">
+								<ul class="social-icons">
+								<li class="social-icons-facebook"><a href="https://www.facebook.com/warmupdelivery/?fref=ts" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
 								<li class="social-icons-instagran"><a href="http://www.instagram.com/" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
 							
 							</ul>
+						</div>
+						<div class="col-md-10">
+								<div class="fb-page" data-href="https://www.facebook.com/warmupdelivery/?fref=ts" data-tabs="events,messages" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/warmupdelivery/?fref=ts"><a href="https://www.facebook.com/warmupdelivery/?fref=ts">WarmUp Delivery</a></blockquote></div></div>
+						
+						</div>
+								
+							</div>
+					
+						
 						</div>
 					</div>
 				</div>
 				<div class="footer-copyright">
 					<div class="container">
-						<div class="row">
+						<div class="row  hidden-sm hidden-xs">
 							<div class="col-md-1">
 								<a href="index.html" class="logo">
 									<img alt="Porto Website Template" class="img-responsive" src="/site/img/logo_1_pb.png">

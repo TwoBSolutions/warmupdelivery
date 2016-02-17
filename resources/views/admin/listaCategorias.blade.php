@@ -1,59 +1,68 @@
-@include('admin.layout.header')
-<body>
-    <section class="body">
-        <!-- start: header -->
-        @include('admin.layout.topo')
-        <!-- end: header -->
-        <div class="inner-wrapper">
-            <!-- start: sidebar -->
-            @include('admin.layout.sidebar')
-            <!-- end: sidebar -->
+@extends('admin.layout.painel')
 
-            <!-- start: page -->
-            <div class="row">
-                <div class="col-md-6 col-lg-12 col-xl-6">
-                    <section class="panel">
-                        <div class="panel-body">
+@section('content')
 
-asdf
-                        </div>
-                        <!-- end: page -->
-                    </section>
-                </div>
+<div class="" ng-controller="CategoriaCtrl">
+	@if (isset($categorias))
+		<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Nome</th>
 
-            </section>
-            <!-- Vendor -->
-          	@include('admin.layout/scripts_master')
+				<th>Descrição</th>
+				<th>Status</th>
+				<th>Imagem</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach ($categorias as $categoria)
+				<tr id='linha{{$categoria->id}}'>
+					
+					<td>{{$categoria->id}}</td>
+					<td>{{$categoria->titulo}}</td>
+					<td>{{$categoria->descricao}}</td>
+					<td>
+					@if ($categoria->status)
+					<i class="fa fa-toggle-on sts_on"></i>
+					Ativa
+					@else
+					<i class="fa fa-toggle-off sts_off"></i>
+					Inativa
+					@endif
+					</td>
+					<td class='img_prev_cat'>
+					<img src="/files/images/{{$categoria->imagem}}" alt="">
+					</td>
+					<td>
+						<button  ng-click="modalcat({{$categoria->id}})" type="button" ng-click="alerta()" class="btn btn-sm btn-primary">Editar</button>
+						@if ($categoria->status)
+							<button type="button"  ng-click="status('{{$categoria->id}}','0')" class="btn btn-sm btn-danger">Desativar</button>
+						@else
+						<button type="button" ng-click="status('{{$categoria->id}}','1')" class="btn btn-sm btn-success">Ativar</button>
+						<button type="button" ng-click="del({{$categoria->id}})" class="btn btn-sm btn-danger">Deletar</button>
+						
+						@endif
+					
 
-            <!-- Specific Page Vendor -->
-            <script src="/admin/assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
-            <script src="/admin/assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
-            <script src="/admin/assets/vendor/jquery-appear/jquery.appear.js"></script>
-            <script src="/admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
-            <script src="/admin/assets/vendor/jquery-easypiechart/jquery.easypiechart.js"></script>
-            <script src="/admin/assets/vendor/flot/jquery.flot.js"></script>
-            <script src="/admin/assets/vendor/flot-tooltip/jquery.flot.tooltip.js"></script>
-            <script src="/admin/assets/vendor/flot/jquery.flot.pie.js"></script>
-            <script src="/admin/assets/vendor/flot/jquery.flot.categories.js"></script>
-            <script src="/admin/assets/vendor/flot/jquery.flot.resize.js"></script>
-            <script src="/admin/assets/vendor/jquery-sparkline/jquery.sparkline.js"></script>
-            <script src="/admin/assets/vendor/raphael/raphael.js"></script>
-            <script src="/admin/assets/vendor/morris/morris.js"></script>
-            <script src="/admin/assets/vendor/gauge/gauge.js"></script>
-            <script src="/admin/assets/vendor/snap-svg/snap.svg.js"></script>
-            <script src="/admin/assets/vendor/liquid-meter/liquid.meter.js"></script>
-            <script src="/admin/assets/vendor/jqvmap/jquery.vmap.js"></script>
-       
+					</td>
 
-            <!-- Theme Base, Components and Settings -->
-            <script src="/admin/assets/javascripts/theme.js"></script>
+				</tr>
+			@endforeach
 
-            <!-- Theme Custom -->
-            <script src="/admin/assets/javascripts/theme.custom.js"></script>
+			@if (isset($status))
+				<div class="retorno">{{$response}}</div>
+			@endif
+		</tbody>
+	</table>
+	@endif
+	
+@include('admin.popup.categoria_editar')
 
-            <!-- Theme Initialization Files -->
-            <script src="/admin/assets/javascripts/theme.init.js"></script>
-            <!-- Examples -->
-            <script src="/admin/assets/javascripts/dashboard/examples.dashboard.js"></script>
-        </body>
-    </html>
+
+</div>
+
+@stop
+@section('page_script')
+@stop

@@ -36,7 +36,7 @@
 
 					<div class="row">
 						<div class="col-md-4">
-							<img class="img-responsive mt-xl appear-animation" src="img/layout-styles.png" alt="layout styles" data-appear-animation="fadeInLeft">
+							<img class="img-responsive mt-xl appear-animation" src="/site/img/entregador.png" alt="layout styles" data-appear-animation="fadeInLeft">
 						</div>
 						<div class="col-md-7 col-md-offset-1">
 							<h2 class="mt-xl"><strong>Compre onde estiver</strong>, não se preocupe!</h2>
@@ -55,7 +55,7 @@
 
 					<div class="row">
 						<div class="col-md-7">
-							<h2 class="mt-xl">Promoções exclusivas <img class="logosmall" src="/site/img/logo_1.png" height="40"></img></h2>
+							<h2 class="mt-xl"> <img class="logosmall" src="/site/img/icon.png" height="40"></img> Promoções exclusivas </h2>
 							<p class="lead">
 								Dentro do nosso aplicativo, temos as melhores promoções! 
 							</p>
@@ -64,7 +64,7 @@
 							</p>
 						</div>
 						<div class="col-md-4 col-md-offset-1 mt-xl">
-							<img class="img-responsive appear-animation" src="img/style-switcher.png" alt="style switcher" data-appear-animation="fadeInRight">
+							<img class="img-responsive appear-animation" src="/site/img/COMBO3.jpg" alt="style switcher" data-appear-animation="fadeInRight">
 						</div>
 					</div>
 

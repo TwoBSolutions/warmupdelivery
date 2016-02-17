@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Image;
+
+use App\AppCategorias;
 
 class CategoriaController extends Controller
 {
@@ -16,7 +19,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.listaCategorias',['categorias'=>AppCategorias::get()]);
     }
 
     /**
@@ -26,7 +29,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.novaCategoria');
     }
 
     /**
@@ -37,7 +40,34 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $dados = $request->all();
+
+            if ($image = $request->imagem) {
+            
+            try {
+                $filename = md5(uniqid(rand(), true)) . '.jpg';
+                
+                $path = public_path('/files/images/');
+                if (!file_exists($path)) {
+                    mkdir($path, 0755);
+                }
+                
+                Image::make($image->getRealPath())->resize(600, 200)->save($path . $filename);
+                // Image::make($image->getRealPath())->save($path . $filename);
+                $dados['imagem'] = $filename;
+                
+            }
+            catch(Exception $e) {
+                return $e;
+                $filename = 'falha.jpg';
+            }
+        }
+
+
+        if(AppCategorias::create($dados)){
+            return view('admin.novaCategoria',['status'=>'sucesso']);
+        }
     }
 
     /**
@@ -48,9 +78,18 @@ class CategoriaController extends Controller
      */
     public function show($id)
     {
-        //
+        return AppCategorias::find($id);
     }
 
+    public function setstatus($id,$sts){
+
+        if (AppCategorias::where('id',$id)->update(['status'=>$sts])) {
+            return ['status'=>'sucesso','response'=>'Categoria Atualizada com sucesso'];
+        }else{
+
+            return ['status'=>'erros','response'=>'Erro ao Atualizar categoria'];
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -59,7 +98,9 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return AppCategorias::find($id);
+
+          
     }
 
     /**
@@ -71,8 +112,23 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(AppCategorias::where('id',$id)->update($request->all())){
+            return view('admin.novaCategoria',['status'=>'sucesso']);
+        }
     }
+   /**
+     *  Pega os dados da categoria
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getcategoria($id)
+    {
+       return AppCategorias::where('id',$id)->first();
+    }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -82,6 +138,8 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (AppCategorias::where('id',$id)->delete()) {
+            return ['status'=>'Sucesso'];
+        }
     }
 }

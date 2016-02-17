@@ -30,6 +30,24 @@
 		<!-- Theme Initialization Files -->
 		<script src="/site/js/theme.init.js"></script>
 
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '464639167070592',
+		      xfbml      : true,
+		      version    : 'v2.5'
+		    });
+		  };
+
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+
 		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
