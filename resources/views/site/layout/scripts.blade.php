@@ -31,6 +31,8 @@
 		<script src="/site/js/theme.init.js"></script>
 
 		<script>
+
+		sortUnorderedList('listaBairros');
 		  window.fbAsyncInit = function() {
 		    FB.init({
 		      appId      : '464639167070592',
@@ -46,6 +48,36 @@
 		     js.src = "//connect.facebook.net/en_US/sdk.js";
 		     fjs.parentNode.insertBefore(js, fjs);
 		   }(document, 'script', 'facebook-jssdk'));
+
+		  function sortUnorderedList(ul, sortDescending) {
+				  if(typeof ul == "string")
+				    ul = document.getElementById(ul);
+
+				  // Idiot-proof, remove if you want
+				  if(!ul) {
+				    alert("The UL object is null!");
+				    return;
+				  }
+
+				  // Get the list items and setup an array for sorting
+				  var lis = ul.getElementsByTagName("LI");
+				  var vals = [];
+
+				  // Populate the array
+				  for(var i = 0, l = lis.length; i < l; i++)
+				    vals.push(lis[i].innerHTML);
+
+				  // Sort it
+				  vals.sort();
+
+				  // Sometimes you gotta DESC
+				  if(sortDescending)
+				    vals.reverse();
+
+				  // Change the list on the page
+				  for(var i = 0, l = lis.length; i < l; i++)
+				    lis[i].innerHTML = vals[i];
+				}
 		</script>
 
 		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.

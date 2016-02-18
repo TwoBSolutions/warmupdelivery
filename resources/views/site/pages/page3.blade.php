@@ -78,7 +78,7 @@
 							<p class="lead">
 								Bairros atendidos até o momento
 							</p>
-							<ul 'ordem-alfabetica bairros_entrega'>
+							<ul id='listaBairros' 'ordem-alfabetica bairros_entrega'>
 								<li>Copacabana</li>
 								<li>Lagoa</li>
 								<li>Jd. Botanico</li>
