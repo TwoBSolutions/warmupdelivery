@@ -1,5 +1,6 @@
 /.phpintel
 .phpintel
+.env
 /node_modules
 Homestead.yaml
 Homestead.json
