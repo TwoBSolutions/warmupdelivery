@@ -70,23 +70,30 @@
 
 					<hr class="tall">
 					<div class="row">
-						<div class="col-md-4">
-							<img class="img-responsive mt-xl appear-animation" src="img/layout-styles.png" alt="layout styles" data-appear-animation="fadeInLeft">
+						<div class="col-md-7">
+							<img class="img-responsive img-full mt-xl appear-animation" src="/site/img/cobertura.jpg" alt="layout styles" data-appear-animation="fadeInLeft">
 						</div>
-						<div class="col-md-7 col-md-offset-1">
-							<h2 class="mt-xl"><strong>Area de atendimento</strong></h2>
+						<div class="col-md-4 col-md-offset-1">
+							<h2 class="mt-xl"><strong>Área de antendimento</strong></h2>
 							<p class="lead">
-								Atualmente atendemos dentro desta area
+								Bairros atendidos até o momento
 							</p>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								
-							</p>
+							<ul 'ordem-alfabetica bairros_entrega'>
+								<li>Copacabana</li>
+								<li>Lagoa</li>
+								<li>Jd. Botanico</li>
+								<li>Cosme Velho</li>
+								<li>Bota Fogo</li>
+								<li>Flamengo</li>
+								<li>Urca</li>
+								<li>Leme</li>
+								<li>Ipanema</li>
+								<li>Leblon</li>
+								<li>Gávea</li>
+								<li>Horto</li>
+								<li>Laranjeiras</li>
+								<li>Catete</li>
+							</ul>
 						</div>
 					</div>
 <hr class="tall">
