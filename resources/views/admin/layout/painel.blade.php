@@ -44,6 +44,11 @@
             <script src="/admin/assets/vendor/snap-svg/snap.svg.js"></script>
             <script src="/admin/assets/vendor/liquid-meter/liquid.meter.js"></script>
             <script src="/admin/assets/vendor/jqvmap/jquery.vmap.js"></script>
+            <script src="/admin/assets/javascripts/mask.js"></script>
+
+
+      
+            <script src="/admin/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
        
 
             <!-- Theme Base, Components and Settings -->
@@ -60,7 +65,44 @@
             <script src="/admin/assets/angular/app.js"></script>
             <script src="/admin/assets/angular/controllers/MainCtrl.js"></script>
             <script src="/admin/assets/angular/controllers/CategoriaCtrl.js"></script>
-
+            <script>
+           jQuery(document).ready(function($) {
+               $('.date').mask('00/00/0000');
+                  $('.time').mask('00:00:00');
+                  $('.date_time').mask('00/00/0000 00:00:00');
+                  $('.cep').mask('00000-000');
+                  $('.phone').mask('0000-0000');
+                  $('.phone_with_ddd').mask('(00) 0000-0000');
+                  $('.phone_us').mask('(000) 000-0000');
+                  $('.mixed').mask('AAA 000-S0S');
+                  $('.cpf').mask('000.000.000-00', {reverse: true});
+                  $('.money2').mask('000.000.000.000.000,00', {reverse: true});
+                  $('.money').mask("#.##0,00", {reverse: true});
+                  $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+                    translation: {
+                      'Z': {
+                        pattern: /[0-9]/, optional: true
+                      }
+                    }
+                  });
+                  $('.ip_address').mask('099.099.099.099');
+                  $('.percent').mask('##0,00%', {reverse: true});
+                  $('.clear-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
+                  $('.placeholder').mask("00/00/0000", {placeholder: "__/__/____"});
+                  $('.fallback').mask("00r00r0000", {
+                      translation: {
+                        'r': {
+                          pattern: /[\/]/, 
+                          fallback: '/'
+                        }, 
+                        placeholder: "__/__/____"
+                      }
+                    });
+                  $('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
+           });
+                  
+         
+            </script>
 
             @yield('page_script')
         </body>

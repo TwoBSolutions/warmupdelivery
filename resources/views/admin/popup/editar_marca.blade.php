@@ -1,12 +1,12 @@
 
-<div class="modal fade" id="modal-categoria">
+<div class="modal fade" id="modal-marca">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Editar Categoria</h4>
+				<h4 class="modal-title">Editar marca</h4>
 			</div>
-			<form action="categorias/update" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+			<form action="marcas/update" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 			<div class="modal-body clearfix">
 
 				<div class=" col-md-10 col-md-offset-1">
@@ -16,21 +16,21 @@
 				
 					<div class="form-group">
 						<label for="">Nome:</label>
-						<input ng-model='categoria.titulo' name='titulo' type="text" class="form-control" id="nome_categoria" placeholder="Nome da Categoria">
+						<input ng-model='marca.titulo' name='titulo' type="text" class="form-control" id="nome_marca" placeholder="Nome da marca">
 					</div>
 					<div class="form-group">
 						<label for="">Descrição:</label>
-						<textarea ng-model='categoria.descricao' name="descricao" class='form-control'>
+						<textarea ng-model='marca.descricao' name="descricao" class='form-control'>
 							
 						</textarea>
 					</div>
 				<div class="form-group">
-			<label for="">Imagem:</label>
+			<label for="">Logo:</label>
 		<input type="file" name="imagem"  placeholder="Imagem">
 		
 		</div>
-					<input ng-model='categoria._token' type="hidden" name="_token" value="{{ csrf_token() }}">
-					<input ng-model='categoria.id' type="hidden" name="id" value="@{{categoria.id}}">
+					<input ng-model='marca._token' type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input ng-model='marca.id' type="hidden" name="id" value="@{{marca.id}}">
 					
 
 

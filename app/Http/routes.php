@@ -38,34 +38,38 @@ Route::group(['prefix' => 'painel'], function () {
     	Route::get('nova', ['as' => 'novaCategoria', 'uses' => 'CategoriaController@create']);
     	Route::post('nova', ['as' => 'setCategoria', 'uses' => 'CategoriaController@store']);
     	Route::delete('delete/{id}', ['as' => 'delCategoria', 'uses' => 'CategoriaController@destroy']);
-        Route::post('update/{id}', ['as' => 'putCategoria', 'uses' => 'CategoriaController@update']);
+        Route::post('update', ['as' => 'putCategoria', 'uses' => 'CategoriaController@update']);
         Route::put('status/{id}/{sts}', ['as' => 'putCategoria', 'uses' => 'CategoriaController@setstatus']);
     	Route::get('update/{id}', ['as' => 'getcategoria', 'uses' => 'CategoriaController@getcategoria']);
     });
 
     Route::group(['prefix' => 'marcas'], function () {
-    	Route::get('', ['as' => 'categorias', 'uses' => 'MarcaController@listar']);
-    	Route::get('nova', ['as' => 'categorias', 'uses' => 'MarcaController@create']);
-    	Route::post('nova', ['as' => 'categorias', 'uses' => 'MarcaController@PostNova']);
-    	Route::delete('delete/{id}', ['as' => 'categorias', 'uses' => 'MarcaController@destroy']);
-    	Route::post('update/{id}', ['as' => 'categorias', 'uses' => 'MarcaController@update']);
+    	Route::get('', ['as' => 'marcas', 'uses' => 'MarcaController@index']);
+        Route::get('nova', ['as' => 'novaMarca', 'uses' => 'MarcaController@create']);
+        Route::post('nova', ['as' => 'setMarca', 'uses' => 'MarcaController@store']);
+        Route::delete('delete/{id}', ['as' => 'delMarca', 'uses' => 'MarcaController@destroy']);
+        Route::post('update', ['as' => 'putMarca', 'uses' => 'MarcaController@update']);
+        Route::put('status/{id}/{sts}', ['as' => 'putMarca', 'uses' => 'MarcaController@setstatus']);
+        Route::get('update/{id}', ['as' => 'getMarca', 'uses' => 'MarcaController@getmarca']);
     });
 
      Route::group(['prefix' => 'produtos'], function () {
-    	Route::get('', ['as' => 'categorias', 'uses' => 'ProdutoController@listar']);
-    	Route::get('nova', ['as' => 'categorias', 'uses' => 'ProdutoController@create']);
-    	Route::post('nova', ['as' => 'categorias', 'uses' => 'ProdutoController@PostNovo']);
-    	Route::delete('delete/{id}', ['as' => 'categorias', 'uses' => 'ProdutoController@destroy']);
-    	Route::post('update/{id}', ['as' => 'categorias', 'uses' => 'ProdutoController@update']);
+    	Route::get('', ['as' => 'produtos', 'uses' => 'ProdutoController@index']);
+        Route::get('novo', ['as' => 'novoProduto', 'uses' => 'ProdutoController@create']);
+        Route::post('novo', ['as' => 'setProduto', 'uses' => 'ProdutoController@store']);
+        Route::delete('delete/{id}', ['as' => 'delProduto', 'uses' => 'ProdutoController@destroy']);
+        Route::post('update', ['as' => 'putProduto', 'uses' => 'ProdutoController@update']);
+        Route::put('status/{id}/{sts}', ['as' => 'putProduto', 'uses' => 'ProdutoController@setstatus']);
+        Route::get('update/{id}', ['as' => 'getProduto', 'uses' => 'ProdutoController@getProduto']);
     });
 
      Route::group(['prefix' => 'promocao
      	'], function () {
-    	Route::get('', ['as' => 'categorias', 'uses' => 'ProdutoController@listar']);
-    	Route::get('nova', ['as' => 'categorias', 'uses' => 'ProdutoController@create']);
-    	Route::post('nova', ['as' => 'categorias', 'uses' => 'ProdutoController@PostNovo']);
-    	Route::delete('delete/{id}', ['as' => 'categorias', 'uses' => 'ProdutoController@destroy']);
-    	Route::post('update/{id}', ['as' => 'categorias', 'uses' => 'ProdutoController@update']);
+    	Route::get('', ['as' => 'promocoes', 'uses' => 'ProdutoController@listar']);
+    	Route::get('nova', ['as' => 'promocoesCreate', 'uses' => 'ProdutoController@create']);
+    	Route::post('nova', ['as' => 'promocoesNovo', 'uses' => 'ProdutoController@PostNovo']);
+    	Route::delete('delete/{id}', ['as' => 'promocoesDestroy', 'uses' => 'ProdutoController@destroy']);
+    	Route::post('update', ['as' => 'promocoesUpdate', 'uses' => 'ProdutoController@update']);
     });
 
 
@@ -76,4 +80,15 @@ Route::group(['prefix' => 'painel'], function () {
 
 Route::get('/painel', function () {
     return view('admin.index');
+});
+
+
+Route::group(['prefix' => 'api'], function () {
+
+    Route::group(['prefix' => 'produtos'], function () {
+        Route::get('', ['as' => 'apiprodutos', 'uses' => 'ApiController@produtos']);
+    });
+    
+
+
 });

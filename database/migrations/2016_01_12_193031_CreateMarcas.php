@@ -16,6 +16,7 @@ class CreateMarcas extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('descricao');
+            $table->string('imagem');
             $table->text('texto');
             $table->integer('status');
 

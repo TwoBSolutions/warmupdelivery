@@ -65,7 +65,7 @@
                         <span>Configurações</span>
                         </a>
                     </li>
-        
+     
                     <li class="nav-parent">
                         <a>
                         <i class="fa fa-tags" aria-hidden="true"></i>
@@ -99,13 +99,13 @@
                     </a>
                     <ul class="nav nav-children">
                      <li>
-                                <a href="/painel/categorias">
+                                <a href="/painel/marcas">
                                 <i class="fa fa-list-ol"></i>
                                 Listar
                                 </a>
                             </li>
                             <li>
-                                <a href="/painel/categorias/nova">
+                                <a href="/painel/marcas/nova">
                                 <i class="fa fa-plus-circle"></i>
                                 Cadastrar
                                 </a>
@@ -120,13 +120,13 @@
                     </a>
                     <ul class="nav nav-children">
                        <li>
-                                <a href="/painel/categorias">
+                                <a href="/painel/produtos">
                                 <i class="fa fa-list-ol"></i>
                                 Listar
                                 </a>
                             </li>
                             <li>
-                                <a href="/painel/categorias/nova">
+                                <a href="/painel/produtos/novo">
                                 <i class="fa fa-plus-circle"></i>
                                 Cadastrar
                                 </a>

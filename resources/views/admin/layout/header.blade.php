@@ -8,8 +8,7 @@
 		<title>WARMUP - PAINEL ADMINISTRATIVO</title>
 	
 		<meta name="description" content="Painel de Admnistração">
-		<meta name="author" content="Jeandro Couto jeandro.couto@gmail.com">
-
+		
 		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
@@ -41,6 +40,10 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/admin/assets/vendor/magnific-popup/magnific-popup.css" />
 		<link rel="stylesheet" href="/admin/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+		<link rel="stylesheet" href="/admin/assets/vendor/select2/select2.css" />
+		<link rel="stylesheet" href="/admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+		<link rel="stylesheet" href="/admin/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" />
 
 		<!-- Specific Page Vendor CSS -->
 		<link rel="stylesheet" href="/admin/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />

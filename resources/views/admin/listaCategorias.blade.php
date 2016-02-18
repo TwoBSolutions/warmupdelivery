@@ -58,7 +58,7 @@
 	</table>
 	@endif
 	
-@include('admin.popup.categoria_editar')
+ @include('admin.popup.categoria_editar') 
 
 
 </div>

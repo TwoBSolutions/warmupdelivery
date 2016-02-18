@@ -19,6 +19,9 @@ class CreateProdutos extends Migration
             $table->text('texto');
             $table->integer('status');
             $table->integer('id_preco');
+            $table->integer('id_marca');
+            $table->integer('id_categoria');
+            $table->string('tags');
             $table->string('picture');
             $table->timestamps();
         });

@@ -21,7 +21,19 @@ $scope.del = function(id){
 
 }
 
+$scope.updateCategoria = function(id){
 
+	$http.post('/painel/categorias/update/'+id, $scope.categoria).then(function(response){
+	
+		if (response.data.status =='sucesso') {
+
+			alert('sucesso')
+			location.reload();
+		}
+	}, null)
+
+
+}
 $scope.modalcat = function(id){
 	$scope.categoria = [];
 	$http.get('/painel/categorias/update/'+id).success(function(data){

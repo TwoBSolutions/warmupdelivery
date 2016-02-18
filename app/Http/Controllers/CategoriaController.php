@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Image;
+use DB;
 
 use App\AppCategorias;
 
@@ -53,7 +54,9 @@ class CategoriaController extends Controller
                     mkdir($path, 0755);
                 }
                 
-                Image::make($image->getRealPath())->resize(600, 200)->save($path . $filename);
+                Image::make($image->getRealPath())
+                ->crop(600, 200)
+                ->resize(600, 200)->save($path . $filename);
                 // Image::make($image->getRealPath())->save($path . $filename);
                 $dados['imagem'] = $filename;
                 
@@ -110,10 +113,41 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        if(AppCategorias::where('id',$id)->update($request->all())){
-            return view('admin.novaCategoria',['status'=>'sucesso']);
+    public function update(Request $request)
+    {   
+
+            $dados = $request->all();
+
+
+            if ($image = $request->imagem) {
+            
+            try {
+                $filename = md5(uniqid(rand(), true)) . '.jpg';
+                
+                $path = public_path('/files/images/');
+                if (!file_exists($path)) {
+                    mkdir($path, 0755);
+                }
+                
+                Image::make($image->getRealPath())
+                ->crop(600, 200)
+                ->resize(600, 200)->save($path . $filename);
+                // Image::make($image->getRealPath())->save($path . $filename);
+                $dados['imagem'] = $filename;
+                AppCategorias::where('id',$request->id)->update(['imagem'=>$filename]);
+            }
+            catch(Exception $e) {
+                return $e;
+                $filename = 'falha.jpg';
+            }
+        }
+  
+        if(AppCategorias::where('id',$request->id)
+    ->update(['titulo'=>$dados['titulo'],'descricao'=>$dados['descricao']])){
+              return redirect(route('categorias'));
+        }else{
+          echo "erro";
+
         }
     }
    /**
