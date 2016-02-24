@@ -21,3 +21,24 @@ td.img_prev_cat img {
    
     /* background: #ccc; */
 }
+.profilepreview img {
+    max-width: 200px;
+    max-height: 200px;
+    padding: 5px;
+    background: #ccc;
+    box-shadow: 2px 2px 5px;
+}
+.profilepreview {
+    /* background: #ccc; */
+    width: 200px;
+    height: 200px;
+}
+td.profile_pic_min img {
+    height: 50px;
+    border-radius: 100%;
+}
+ul.errors {
+    color: red;
+    list-style: none;
+    padding: 0;
+}

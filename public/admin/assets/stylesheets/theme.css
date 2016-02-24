@@ -15320,7 +15320,7 @@ html.dark .invoice table.table > tbody tr > td {
 	background: transparent;
 }
 .body-sign .panel-sign .panel-title-sign .title {
-	background-color: #cccccc;
+	background-color: #fff;
 	border-radius: 5px 5px 0 0;
 	color: #FFF;
 	display: inline-block;

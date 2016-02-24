@@ -1,3 +1,23 @@
+### 2.2.0 (2015-12-20)
+
+* isJSON now returns false for empty strings
+* Update for German umlaut transformation
+* Use reflection to generate method list for StaticStringy
+* Added isBase64 method
+* Improved toAscii char coverage
+
+### 2.1.0 (2015-09-02)
+
+* Added simplified StaticStringy class
+* str in Stringy::create and constructor is now optional
+
+### 2.0.0 (2015-07-29)
+
+ * Removed StaticStringy class
+ * Added append, prepend, toBoolean, repeat, between, slice, split, and lines
+ * camelize/upperCamelize now strip leading dashes and underscores
+ * titleize converts to lowercase, thus no longer preserving acronyms
+
 ### 1.10.0 (2015-07-22)
 
  * Added trimLeft, trimRight

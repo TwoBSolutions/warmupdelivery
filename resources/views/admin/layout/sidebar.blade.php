@@ -161,13 +161,13 @@
                     </a>
                     <ul class="nav nav-children">
                         <li>
-                                <a href="/painel/categorias">
+                                <a href="/painel/usuarios">
                                 <i class="fa fa-list-ol"></i>
                                 Listar
                                 </a>
                             </li>
                             <li>
-                                <a href="/painel/categorias/nova">
+                                <a href="/painel/usuarios/cadastro">
                                 <i class="fa fa-plus-circle"></i>
                                 Cadastrar
                                 </a>

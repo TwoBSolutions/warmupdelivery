@@ -1,8 +1,10 @@
 @extends('admin.layout.painel')
 
 @section('content')
+<div ng-controller="DashCtrl">
+  
 
-<div class="panel  col-md-6">
+<div class="panel  col-md-6" >
       <div class="panel-heading">
             <h3 class="panel-title">Ultimos Pedidos</h3>
       </div>
@@ -90,8 +92,9 @@
      </div>
 </div>
 
-
+</div>
 @stop
 
 @section('page_script')
+<script src='/admin/assets/angular/controllers/DashCtrl.js'></script>
 @stop

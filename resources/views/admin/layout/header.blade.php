@@ -63,3 +63,7 @@
 		<script src="/admin/assets/vendor/modernizr/modernizr.js"></script>
 
 	</head>
+
+	<script>
+		var API = "teste";
+	</script>

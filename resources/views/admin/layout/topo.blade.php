@@ -1,7 +1,7 @@
 			<header class="header">
 				<div class="logo-container">
 					<a href="/painel" class="logo">
-						<img src="/global/img/logo_1.png" height="35" alt="Faciliti" />
+						<img src="/global/img/logo_2.png" height="35" alt="Faciliti" />
 					</a>
 					<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
 						<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
@@ -184,13 +184,15 @@
 					</ul> --}}
 			
 					<span class="separator"></span>
-			
+					
 					<div id="userbox" class="userbox">
+
+					@if (Auth::user('email'))
 						<a href="#" data-toggle="dropdown">
 							<figure class="profile-picture">
 								<img src="assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
 							</figure>
-							<div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+							<div class="profile-info" data-lock-name="John Doe" data-lock-email="">
 								<span class="name">John Doe Junior</span>
 								<span class="role">administrator</span>
 							</div>
@@ -206,10 +208,12 @@
 								</li>
 								
 								<li>
-									<a role="menuitem" tabindex="-1" href="pages-signin.html"><i class="fa fa-power-off"></i> Logout</a>
+									<a role="menuitem" tabindex="-1" href="/painel/logout"><i class="fa fa-power-off"></i> Logout</a>
 								</li>
 							</ul>
 						</div>
+					@endif
+						
 					</div>
 				</div>
 				<!-- end: search & user box -->

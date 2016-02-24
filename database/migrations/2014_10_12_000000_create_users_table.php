@@ -22,7 +22,9 @@ class CreateUsersTable extends Migration
             $table->integer('tipo');
             $table->string('email')->unique();
             $table->string('password', 60);
-            $table->string('tokenmail');
+            $table->string('remember_token');
+            $table->string('facebookid');
+            $table->string('foto');
             $table->string('fone');
             $table->string('fone2');
             $table->integer('status');
