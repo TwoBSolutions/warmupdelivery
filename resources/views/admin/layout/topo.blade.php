@@ -187,14 +187,14 @@
 					
 					<div id="userbox" class="userbox">
 
-					@if (Auth::user('email'))
+					@if (Auth::user())
 						<a href="#" data-toggle="dropdown">
 							<figure class="profile-picture">
-								<img src="assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
+								<img src="/files/profiles/{{Auth::user()->foto}}" alt="Joseph Doe" class="img-circle" data-lock-picture="/files/profiles/{{Auth::user()->foto}}" />
 							</figure>
-							<div class="profile-info" data-lock-name="John Doe" data-lock-email="">
-								<span class="name">John Doe Junior</span>
-								<span class="role">administrator</span>
+							<div class="profile-info" data-lock-name="John Doe" data-lock-email="{{Auth::user()->email}}">
+								<span class="name">{{Auth::user()->nome}}</span>
+								<span class="role">{{Auth::user()->tipo}}</span>
 							</div>
 			
 							<i class="fa custom-caret"></i>
