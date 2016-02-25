@@ -1,4 +1,5 @@
 <div class="formulario col-md-10 col-md-offset-1" ng-controller="CategoriaCtrl">
+						<input type="hidden" name="_token" value="{{csrf_token()}}">
 	
 		<legend>Nova Categoria</legend>
 	

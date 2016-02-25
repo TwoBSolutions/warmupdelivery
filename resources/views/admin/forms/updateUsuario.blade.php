@@ -1,4 +1,5 @@
 <div class="formulario col-md-10 col-md-offset-1" ng-controller="ProdutosCtrl">
+						<input type="hidden" name="_token" value="{{csrf_token()}}">
 	
 	<h1>{{$user->nome}} {{$user->sobrenome}}</h1>
 	<legend>Editar usuario</legend>
