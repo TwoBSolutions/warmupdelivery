@@ -37,7 +37,7 @@ Route::group(['prefix' => ''], function () {
  Route::post('login', ['as' => 'logarPainel', 'uses' => 'UsuariosController@logarPainel']);
  Route::get('auth/login', ['as' => 'loginPainel','uses'=>'UsuariosController@login']);
 
-Route::group(['prefix' => 'painel','as'=>'painel'], function () {
+Route::group(['prefix' => 'painel','as'=>'painel','middleware'=>'auth'], function () {
 	Route::get('', function () {
     return view('admin.index');
 	});
