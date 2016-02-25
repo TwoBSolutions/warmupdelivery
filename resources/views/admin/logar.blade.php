@@ -67,6 +67,7 @@
 								</div>
 								<div class="input-group input-group-icon">
 									<input name="password" type="password" class="form-control input-lg" />
+									<input type="hidden" name="_token" value="{{csrf_token()}}">
 									<span class="input-group-addon">
 										<span class="icon icon-lg">
 											<i class="fa fa-lock"></i>
