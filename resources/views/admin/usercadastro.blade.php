@@ -3,6 +3,7 @@
 @section('content')
 
 <form action="/painel/usuarios/cadastrar" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
+<input type="hidden" name="_token" value="{{csrf_token()}}">
 	@include('admin.forms.novoUsuario')
 </form>
 

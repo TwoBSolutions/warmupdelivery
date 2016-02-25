@@ -1,5 +1,5 @@
 <div class="formulario col-md-10 col-md-offset-1" ng-controller="ProdutosCtrl">
-						<input type="hidden" name="_token" value="{{csrf_token()}}">
+						
 	
 
 	<legend>Adicionar novo usuario</legend>

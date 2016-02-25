@@ -193,7 +193,7 @@ class UsuariosController extends Controller
         $dados['password'] = Hash::make($request->password);
         $dados['status']   = 1;
         if (User::create($dados)) {
-            return redirect(route('usuarios'));
+            return redirect('/painel/usuarios');
         }
 
     }
