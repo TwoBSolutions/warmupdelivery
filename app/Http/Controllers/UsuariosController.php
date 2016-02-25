@@ -34,6 +34,12 @@ class UsuariosController extends Controller
     public function logarPainel(Request $request)
     {
 
+          if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+                return redirect('/painel');
+            
+          }else{
+            return redirect()->back()->withErrors(['senha' => 'Senha Errada']);
+          }
         $user = User::where('email', $request->email)->orWhere('fone', $request->email)->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {

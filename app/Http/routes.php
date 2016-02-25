@@ -10,17 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
  */
-Route::group(['prefix' => ''], function () {
-    Route::get('', function () {
-        return view('coming.index');
-
-    });
-
-    Route::get('preview', function () {
-        return view('site.home');
-    });
-
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +18,23 @@ Route::group(['prefix' => ''], function () {
 | Rotas para as funções de adminitração pelo painel
 |
  */
-Route::post('login', ['as' => 'logarPainel', 'uses' => 'UsuariosController@logarPainel']);
-Route::get('auth/login', ['as' => 'loginPainel', 'uses' => 'UsuariosController@login']);
 
 Route::group(['middleware' => 'web'], function () {
+    Route::group(['prefix' => ''], function () {
+        Route::get('', function () {
+            return view('coming.index');
 
-    Route::group(['prefix' => 'painel', 'as' => 'painel'], function () {
+        });
+
+        Route::get('preview', function () {
+            return view('site.home');
+        });
+
+    });
+    Route::post('login', ['as' => 'logarPainel', 'uses' => 'UsuariosController@logarPainel']);
+    Route::get('/login', ['as' => 'loginPainel', 'uses' => 'UsuariosController@login']);
+
+    Route::group(['prefix' => 'painel', 'as' => 'painel', 'middleware' => 'auth'], function () {
         Route::get('', function () {
             return view('admin.index');
         });
@@ -71,7 +71,7 @@ Route::group(['middleware' => 'web'], function () {
         });
 
         Route::group(['prefix' => 'promocao
-        ', ], function () {
+        '], function () {
             Route::get('', ['as' => 'promocoes', 'uses' => 'PromocaoController@listar']);
             Route::get('nova', ['as' => 'promocoesCreate', 'uses' => 'PromocaoController@create']);
             Route::post('nova', ['as' => 'promocoesNovo', 'uses' => 'PromocaoController@PostNovo']);
