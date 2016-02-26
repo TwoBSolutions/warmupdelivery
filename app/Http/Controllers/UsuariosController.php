@@ -124,10 +124,14 @@ class UsuariosController extends Controller
         if ($request->foto) {
             $user->foto = $this->profilepicture($request->nome . ' ' . $request->sobrenome, $request->foto);
 
+        }else{
+            if (!$user->foto) {
+               $user->foto = $this->profilepicture($request->nome . ' ' . $request->sobrenome,null);
+            }
         }
 
         if ($user->save()) {
-            return redirect(route('usuarios'));
+            return redirect('/painel/usuarios');
         } else {
             return redirect()->back()->withInput()->withErrors(['geral' => 'Algo deu errado']);
 

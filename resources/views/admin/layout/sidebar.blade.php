@@ -46,7 +46,19 @@
                         <li>
                             <a href="/painel/pedidos/finalizados">
                             <i class="fa fa-check"></i>
-                            Finalizados
+                            Entregues
+                            </a>
+                        </li>
+                         <li>
+                            <a href="/painel/pedidos/cancelados">
+                            <i class="fa fa-warning"></i>
+                            Cancelados
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/painel/pedidos/all">
+                            <i class="fa fa-list-ol"></i>
+                            Todos
                             </a>
                         </li>
                     </ul>
@@ -201,12 +213,12 @@
                     </a>
                     <ul class="nav nav-children">
                         <li>
-                            <a href="pages-signup.html">
+                            <a href="/painel/clientes">
                             Listar
                             </a>
                         </li>
                         <li>
-                            <a href="pages-signup.html">
+                            <a href="/painel/clientes/novo">
                             Novo Cliente
                             </a>
                         </li>
@@ -240,18 +252,3 @@
     </div>
 </div>
 </aside>
-<section role="main" class="content-body">
-<header class="page-header">
-    <h2>Dashboard</h2>
-    {{-- <div class="right-wrapper pull-right">
-        <ol class="breadcrumbs">
-            <li>
-                <a href="index.html">
-                <i class="fa fa-home"></i>
-                </a>
-            </li>
-            <li><span>Dashboard</span></li>
-        </ol>
-        <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
-    </div> --}}
-</header>

@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('cpf');
             $table->string('rg');
             $table->date('data_nasc');
-            $table->integer('tipo');
+            $table->string('tipo');
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->string('remember_token');
@@ -27,7 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('foto');
             $table->string('fone');
             $table->string('fone2');
-            $table->integer('status');
+            $table->string('create_from')->default('APP');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

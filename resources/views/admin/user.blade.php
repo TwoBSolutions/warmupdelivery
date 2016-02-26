@@ -1,5 +1,5 @@
 @extends('admin.layout.painel')
-
+@section('titlepage','Usuarios do sistemas')
 @section('content')
 
 @if (isset($usuarios))

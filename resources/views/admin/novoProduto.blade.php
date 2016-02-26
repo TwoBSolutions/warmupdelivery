@@ -1,5 +1,5 @@
 @extends('admin.layout.painel')
-
+@section('titlepage','Adicionar Produto')
 @section('content')
 <form action="novo" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 	@include('admin.forms.novoProduto')

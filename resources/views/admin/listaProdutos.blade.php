@@ -1,5 +1,5 @@
 @extends('admin.layout.painel')
-
+@section('titlepage','Produtos')
 @section('content')
 
 <div class="" ng-controller="ProdutosCtrl">

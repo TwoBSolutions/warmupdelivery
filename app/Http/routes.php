@@ -34,10 +34,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('login', ['as' => 'logarPainel', 'uses' => 'UsuariosController@logarPainel']);
     Route::get('/login', ['as' => 'loginPainel', 'uses' => 'UsuariosController@login']);
 
-    Route::group(['prefix' => 'painel', 'as' => 'painel', 'middleware' => 'auth'], function () {
-        Route::get('', function () {
-            return view('admin.index');
-        });
+    Route::group(['prefix' => 'painel', 'as' => 'painel'], function () {
+
+            Route::get('', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
+
         Route::get('logout', ['as' => 'logoutPainel', 'uses' => 'UsuariosController@sairPainel']);
 
         Route::group(['prefix' => 'categorias'], function () {
@@ -71,7 +71,7 @@ Route::group(['middleware' => 'web'], function () {
         });
 
         Route::group(['prefix' => 'promocao
-        '], function () {
+        ', ], function () {
             Route::get('', ['as' => 'promocoes', 'uses' => 'PromocaoController@listar']);
             Route::get('nova', ['as' => 'promocoesCreate', 'uses' => 'PromocaoController@create']);
             Route::post('nova', ['as' => 'promocoesNovo', 'uses' => 'PromocaoController@PostNovo']);
@@ -89,6 +89,19 @@ Route::group(['middleware' => 'web'], function () {
 
         Route::group(['prefix' => 'configuracoes'], function () {
             Route::get('', ['as' => 'setings', 'uses' => 'SetingsController@index']);
+            Route::post('basicas', ['as' => 'setingsBasics', 'uses' => 'SetingsController@saveBasic']);
+
+        });
+        Route::group(['prefix' => 'mapa'], function () {
+            Route::get('', ['as' => 'mapa', 'uses' => 'PedidosController@mapa']);
+
+        });
+        Route::group(['prefix' => 'pedidos'], function () {
+            Route::get('novos', ['as' => 'pedidosNovos', 'uses' => 'PedidosController@listPedidosNovos']);
+            Route::get('finalizados', ['as' => 'pedidosFinalizados', 'uses' => 'PedidosController@listPedidosFinalizados']);
+            Route::get('andamento', ['as' => 'pedidosAndamento', 'uses' => 'PedidosController@listPedidosAndamento']);
+            Route::get('all', ['as' => 'pedidosAll', 'uses' => 'PedidosController@listPedidosAll']);
+            Route::get('cancelados', ['as' => 'pedidosCancelados', 'uses' => 'PedidosController@listPedidosCancelados']);
 
         });
 
@@ -102,6 +115,18 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('desativar/{id}', ['as' => 'cadastrar_usuario', 'uses' => 'UsuariosController@desativar']);
             Route::get('delete/{id}', ['as' => 'cadastrar_usuario', 'uses' => 'UsuariosController@delete']);
             Route::post('cadastrar', ['as' => 'cadastrar_usuario', 'uses' => 'UsuariosController@cadastro']);
+
+        });
+         Route::group(['prefix' => 'clientes'], function () {
+            Route::get('', ['as' => 'clientes', 'uses' => 'ClientesController@index']);
+            Route::get('novo', ['as' => 'clistes_novo', 'uses' => 'ClientesController@cadastrar']);
+            Route::post('create', ['as' => 'clientes_create', 'uses' => 'ClientesController@create']);
+            Route::get('cliente/{id}', ['as' => 'atualizar_cliente', 'uses' => 'ClientesController@atualizar']);
+            Route::post('update/{id}', ['as' => 'cadastrar_cliente', 'uses' => 'ClientesController@update']);
+            Route::get('ativar/{id}', ['as' => 'cadastrar_cliente', 'uses' => 'ClientesController@ativar']);
+            Route::get('desativar/{id}', ['as' => 'cadastrar_cliente', 'uses' => 'ClientesController@desativar']);
+            Route::get('delete/{id}', ['as' => 'cadastrar_cliente', 'uses' => 'ClientesController@delete']);
+            Route::post('cadastrar', ['as' => 'cadastrar_cliente', 'uses' => 'ClientesController@cadastro']);
 
         });
 

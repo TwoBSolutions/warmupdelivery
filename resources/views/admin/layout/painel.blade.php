@@ -7,6 +7,24 @@
         <div class="inner-wrapper">
             <!-- start: sidebar -->
             @include('admin.layout.sidebar')
+
+            <section role="main" class="content-body">
+            <header class="page-header">
+                <h2>
+                @yield('titlepage')
+                </h2>
+                {{-- <div class="right-wrapper pull-right">
+                    <ol class="breadcrumbs">
+                        <li>
+                            <a href="index.html">
+                            <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li><span>Dashboard</span></li>
+                    </ol>
+                    <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+                </div> --}}
+            </header>
             <!-- end: sidebar -->
 
             <!-- start: page -->
@@ -27,6 +45,7 @@
 
             <!-- Specific Page Vendor -->
             <script src="/admin/assets/angular/js/angular.min.js"></script>
+            <script src="http://maps.google.com/maps/api/js"></script>
             <script src="/admin/assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
             <script src="/admin/assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
             <script src="/admin/assets/vendor/jquery-appear/jquery.appear.js"></script>
@@ -43,7 +62,7 @@
             <script src="/admin/assets/vendor/gauge/gauge.js"></script>
             <script src="/admin/assets/vendor/snap-svg/snap.svg.js"></script>
             <script src="/admin/assets/vendor/liquid-meter/liquid.meter.js"></script>
-            <script src="/admin/assets/vendor/jqvmap/jquery.vmap.js"></script>
+            <script src="/global/js/ng-map.min.js"></script>
             <script src="/admin/assets/javascripts/mask.js"></script>
 
 

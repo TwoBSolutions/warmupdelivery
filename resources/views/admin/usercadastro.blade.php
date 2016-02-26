@@ -1,4 +1,6 @@
 @extends('admin.layout.painel')
+@section('titlepage','Cadastro de novo usuario do sistema')
+
 
 @section('content')
 

@@ -1,5 +1,5 @@
 @extends('admin.layout.painel')
-
+@section('titlepage','Promoções')
 @section('content')
 @stop
 

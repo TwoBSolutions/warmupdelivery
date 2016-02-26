@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\AppConfig;
 
 class PedidosController extends Controller
 {
@@ -18,6 +19,30 @@ class PedidosController extends Controller
     {
         //
     }
+
+    public function mapa(){
+         $config = AppConfig::first();
+
+        return view('admin.mapaPedidos',compact('config'));
+    }
+
+      public function listPedidosNovos(){
+
+        return view('admin.pedidosNovos');
+    }
+public function listPedidosFinalizados(){
+    return view('admin.pedidosFinalizados');
+}
+public function listPedidosAndamento(){
+    return view('admin.pedidosAndamento');
+}
+public function listPedidosAll(){
+    return view('admin.pedidosAll');
+}
+public function listPedidosCancelados(){
+    return view('admin.pedidosCancelados');
+}
+
 
     /**
      * Show the form for creating a new resource.

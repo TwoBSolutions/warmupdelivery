@@ -1,4 +1,6 @@
 @extends('admin.layout.painel')
+@section('titlepage','Editar usuario')
+
 
 @section('content')
 

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\AppConfig;
+
 class DashboardController extends Controller
 {
     /**
@@ -16,7 +18,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        $config = AppConfig::first();
+
+        return view('admin.index',compact('config'));
     }
 
     /**

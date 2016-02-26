@@ -17,11 +17,15 @@ class CreateEndereco extends Migration
             $table->string('titulo');
             $table->string('responsavel');
             $table->string('logradouro');
+            $table->string('bairro');
             $table->integer('numero');
             $table->string('complemento');
+            $table->string('observacao');
             $table->string('referencia');
+            $table->string('cidade');
             $table->integer('id_pessoa');
             $table->integer('status');
+            $table->integer('principal');
             $table->timestamps();
         });
     }

@@ -1,5 +1,5 @@
 @extends('admin.layout.painel')
-
+@section('titlepage','Mensagens')
 @section('content')
 <section>
 	Nenhuma Mensagem

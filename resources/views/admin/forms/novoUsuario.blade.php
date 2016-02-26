@@ -86,8 +86,15 @@
 	</div>
 	<div class="clearfix"></div>
 	<hr class="colorspacer clearfix"></hr>
+	@if (isset($errors))
+	<ul class="errors">
+		@foreach ($errors->all('<li>:message</li>') as $message)
+			{!! $message !!}
+		@endforeach
+	</ul>
+		
+	@endif
 	@if (isset($messages))
-	aa
 		@foreach ($messages->all('<li>:message</li>') as $message)
 			{{ $message }}
 		@endforeach

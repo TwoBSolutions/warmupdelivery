@@ -1,4 +1,5 @@
 @extends('admin.layout.painel')
+@section('titlepage','Categorias')
 
 @section('content')
 
