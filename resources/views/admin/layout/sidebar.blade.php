@@ -24,14 +24,22 @@
                         <span>Mapa</span>
                         </a>
                     </li>
-                     <li class="nav-parent">
-                    <a>
+                     <li class="nav-parent nav-expanded">
+                    <a class='menu-pedidos'>
                     <i class="fa fa-desktop" aria-hidden="true"></i>
-                    <span>Pedidos</span>
+
+                    <span>Pedidos </span>
                     </a>
-                    <ul class="nav nav-children">
+                    <ul class="nav nav-children menu-pedidos-in">
+                     <li class='novaVenda'>
+                            <a href="/painel/pedidos/create">
+                           <i class="fa fa-cart-plus"></i>
+                            CRIAR VENDA
+                            </a>
+                        </li>
                         <li>
                             <a href="/painel/pedidos/novos">
+                            <span class="pull-right label label-danger">0</span>
                             <i class="fa fa-star-o"></i>
                             Novos
                             </a>

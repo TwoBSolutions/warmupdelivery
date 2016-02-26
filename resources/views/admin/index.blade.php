@@ -2,7 +2,16 @@
 @section('titlepage','Dashboard')
 @section('content')
 <div ng-controller="DashCtrl">
-  
+  <div class="alerts">
+    <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Limite de estoque</strong> Existem 2 produtos que estão com estoque abaixo do limite!
+    </div>
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Pedidos novos </strong> 4 Novos pedidos na ultima hora !
+    </div>
+  </div>
 
 <div class="panel  col-md-6" >
       <div class="panel-heading">

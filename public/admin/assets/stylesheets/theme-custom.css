@@ -82,3 +82,30 @@ div#mapapedidosFull {
     text-align: center;
     font-size: 12pt;
 }
+li.novaVenda i {color: #7DFF0A;}
+
+li.novaVenda a {
+    color: #10E40E !important;
+}
+a.menu-pedidos {
+    color: #FFED00 !important;
+    background: #000 !important;
+}
+ul.nav.nav-children.menu-pedidos-in {
+    background: #0A0A0A;
+}
+nav#menu i {
+    color: #EC652F;
+    text-shadow: 2px 2px 2px #000;
+}
+ul.nav.nav-children i {
+    color: #424040 !Important;
+}
+.img-invoice img {
+    width: 150px;
+}
+.invoice .bill-data .value {
+    display: inline-block;
+    margin-left: 10px;
+    width: 140px;
+}

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\AppConfig;
+use App\User;
+use App\AppProdutos;
 
 class PedidosController extends Controller
 {
@@ -18,6 +20,16 @@ class PedidosController extends Controller
     public function index()
     {
         //
+    }
+
+    public function novoPedido(){
+        $clientes = User::where('tipo','CLIENTE')->get();
+        $produtos = AppProdutos::get();
+
+        return view('admin.pedidoCriar',compact('clientes','produtos'));
+    }
+    public function pedidoPost(Request $request){
+
     }
 
     public function mapa(){

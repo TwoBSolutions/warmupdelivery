@@ -97,6 +97,8 @@ Route::group(['middleware' => 'web'], function () {
 
         });
         Route::group(['prefix' => 'pedidos'], function () {
+            Route::get('create', ['as' => 'criarPedido', 'uses' => 'PedidosController@novoPedido']);
+
             Route::get('novos', ['as' => 'pedidosNovos', 'uses' => 'PedidosController@listPedidosNovos']);
             Route::get('finalizados', ['as' => 'pedidosFinalizados', 'uses' => 'PedidosController@listPedidosFinalizados']);
             Route::get('andamento', ['as' => 'pedidosAndamento', 'uses' => 'PedidosController@listPedidosAndamento']);
