@@ -41,7 +41,8 @@
 						<div class="col-md-7 col-md-offset-1">
 							<h2 class="mt-xl"><strong>Compre onde estiver</strong>, não se preocupe!</h2>
 							<p class="lead">
-								sair no meio da noite para comprar bebidas para aquela festa que esta rolando? nem pensar!
+								Sair no meio da noite para comprar bebidas para aquela festa que esta rolando? nem pensar, é só chamar a galera e deixar o resto com a 
+gente.
 							</p>
 							<p>
 								Compre pelo aplicativo, nós entregamos super Rapido onde você estiver.

@@ -78,11 +78,12 @@
                         <span>Mensagens</span>
                         </a>
                     </li>
-                    <li>
+                    <li >
                         <a href="/painel/configuracoes">
                       
                         <i class="fa fa-cogs" aria-hidden="true"></i>
                         <span>Configurações</span>
+                        
                         </a>
                     </li>
      

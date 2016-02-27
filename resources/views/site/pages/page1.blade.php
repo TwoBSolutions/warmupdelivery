@@ -6,7 +6,7 @@
 								<img src="/site/img/logo_3.png" alt="" height="150" style="margin:30px 0">
 							</h2>
 							<p class="lead">
-								Compre aquelas bebidas e conveniências usando apenas o smartphone?!!
+								Bebidas geladas, comidinhas espertas, e outras conveniências com rapidez e segurança no conforto de sua casa.
 							</p>
 						</div>
 					</div>
