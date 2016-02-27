@@ -1,4 +1,6 @@
+<div ng-controller="CreatePedidosCtrl" ng-cloak>
 <div role="tabpanel">
+
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
 		<li role="presentation" class="active">
@@ -11,11 +13,18 @@
 
 	<!-- Tab panes -->
 	<div class="tab-content">
-		<div role="tabpanel" class="tab-pane active" id="clientes">
+		<div role="tabpanel" class="tab-pane fade in active" id="clientes">
 			@if (isset($clientes))
+<div class="panel-heading">
+		<div class="btn-group" role="group" aria-label="...">
+  	<button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Novo Cliente</button>
+	<button type="button" class="btn btn-danger"> Pedido Sem Cadastro</button>
+</div>
+	</div>
 
+	<table class="table table-hover datatable">
+	
 
-	<table class="table table-hover">
 
 	<thead>
 		<tr>
@@ -49,14 +58,8 @@
 			
 			<td>
 			<!-- Single button -->
-		<div class="btn-group">
-		  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		     <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu">
-		    <li><a href="/painel/clientes/cliente/{{$user->id}}">Selecionar</a></li>
-		  </ul>
-		</div>
+			<button type="button" ng-click='addUserPedido({{$user->id}})' class="btn btn-success"><i class="fa fa-check"></i>
+			Selecionar</button>
 			</td>
 			
 		</tr>
@@ -71,10 +74,10 @@
 
 
 		</div>
-		<div role="tabpanel" class="tab-pane" id="produtos">
+		<div role="tabpanel" class="tab-pane fade " id="produtos">
 			
 			@if (isset($produtos))
-		<table class="table table-hover">
+		<table class="table table-hover datatable">
 		<thead>
 			<tr>
 				<th>#</th>
@@ -108,7 +111,7 @@
 					<img src="/files/images/{{$produto->picture}}" alt="">
 					</td>
 					<td>
-						<button  type="button" ng-click="alerta()" class="btn btn-sm btn-primary">Selecionar</button>
+						<button  type="button" ng-click="alerta()" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Adicionar</button>
 						
 						
 						
@@ -253,4 +256,5 @@
 					</section>
 
 					<!-- end: page -->
+</div>
 </div>

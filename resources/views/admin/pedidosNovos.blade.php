@@ -7,7 +7,7 @@
 Não existem novos pedidos
 @endif
 
-@stop
+@endsection
 
 @section('page_script')
-@stop
+@endsection

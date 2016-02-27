@@ -6,4 +6,5 @@
 @include('admin.forms.pedido')
 @stop
 @section('page_script')
+    <script src="/admin/assets/angular/controllers/CreatePedidosCtrl.js"></script>
 @stop

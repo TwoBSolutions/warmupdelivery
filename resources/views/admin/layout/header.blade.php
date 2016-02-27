@@ -44,6 +44,7 @@
 		<link rel="stylesheet" href="/admin/assets/vendor/select2/select2.css" />
 		<link rel="stylesheet" href="/admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
 		<link rel="stylesheet" href="/admin/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
 
 		<!-- Specific Page Vendor CSS -->
 		<link rel="stylesheet" href="/admin/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />

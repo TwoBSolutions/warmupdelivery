@@ -64,6 +64,7 @@
             <script src="/admin/assets/vendor/liquid-meter/liquid.meter.js"></script>
             <script src="/global/js/ng-map.min.js"></script>
             <script src="/admin/assets/javascripts/mask.js"></script>
+            <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
 
 
       
@@ -84,8 +85,14 @@
             <script src="/admin/assets/angular/app.js"></script>
             <script src="/admin/assets/angular/controllers/MainCtrl.js"></script>
             <script src="/admin/assets/angular/controllers/CategoriaCtrl.js"></script>
+            @yield('page_script')
+            
             <script>
            jQuery(document).ready(function($) {
+
+              $(document).ready(function(){
+                $('.datatable').DataTable();
+            });
                $('.date').mask('00/00/0000');
                   $('.time').mask('00:00:00');
                   $('.date_time').mask('00/00/0000 00:00:00');
@@ -123,6 +130,5 @@
          
             </script>
 
-            @yield('page_script')
         </body>
     </html>
