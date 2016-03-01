@@ -27,7 +27,7 @@
                         <th>Data/Hora</th>
                         <th>Valor Total</th>
                         <th>Cliente (Nome)</th>
-                        <th>Cliente (Telefone)</th>
+                        <th>Endereço</th>
                         <th></th>
                        
                     </tr>
@@ -38,7 +38,7 @@
                         <td>@{{pedido.created_at}}</td>
                         <td>@{{pedido.total | currency:' R$ '}}</td>
                         <td>@{{pedido.nome}}</td>
-                        <td>@{{pedido.fone}} @{{pedido.fone2}}</td>
+                        <td>@{{pedido.rua}} @{{pedido.numero}} @{{pedido.bairro}}</td>
                         <td>
                           <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,6 +47,7 @@
                             <ul class="dropdown-menu">
                               <li><a href="#">Ver Detalhes</a></li>
                               <li><a href="#">Imprimir</a></li>
+                              <li><a href="#">Agrupar</a></li>
                               <li role="separator" class="divider">situação</li>
                               <li><a href="#">Enviar para entrega</a></li>
                               <li><a href="#">Cancelar</a></li>
