@@ -91,6 +91,16 @@ Route::group(['middleware' => 'web'], function () {
             Route::post('update', ['as' => 'mensagensUpdate', 'uses' => 'MensagensController@update']);
         });
 
+          Route::group(['prefix' => 'alertas'], function () {
+            Route::get('', ['as' => 'alertas', 'uses' => 'MensagensController@alertas']);
+            Route::post('', ['as' => 'alerta.novo', 'uses' => 'MensagensController@alerta.novo']);
+            Route::get('editar/{id}', ['as' => 'alerta.editar', 'uses' => 'MensagensController@alerta.editar']);
+            Route::post('editar/{id}', ['as' => 'alerta.salvar', 'uses' => 'MensagensController@alerta.salvar']);
+            Route::post('deletar/{id}', ['as' => 'alerta.deletar', 'uses' => 'MensagensController@alerta.deletar']);
+            Route::post('status/{id}', ['as' => 'alerta.status', 'uses' => 'MensagensController@alerta.status']);
+           
+        });
+
         Route::group(['prefix' => 'configuracoes'], function () {
             Route::get('', ['as' => 'setings', 'uses' => 'SetingsController@index']);
             Route::post('basicas', ['as' => 'setingsBasics', 'uses' => 'SetingsController@saveBasic']);

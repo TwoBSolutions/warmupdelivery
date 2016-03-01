@@ -86,6 +86,14 @@
                         
                         </a>
                     </li>
+                     <li >
+                        <a href="/painel/alertas">
+                    
+                        <i class="fa fa-warning" aria-hidden="true"></i>
+                        <span>Alertas</span>
+                        
+                        </a>
+                    </li>
      
                     <li class="nav-parent">
                         <a>
