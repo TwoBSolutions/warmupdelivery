@@ -15,9 +15,17 @@ class CreateOrder extends Migration
        Schema::create('order', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_pessoa');
-            $table->integer('id_endereco');
-            $table->string('observação');
-            $table->integer('status');
+            $table->string('observacao');
+            $table->string('tipo');
+            $table->string('local');
+            $table->string('rua');
+            $table->integer('numero');
+            $table->integer('complemento');
+            $table->integer('bairro');
+            $table->integer('endereco_observacao');
+            $table->float('subtotal');
+            $table->float('desconto');
+            $table->float('total');
             $table->timestamps();
         });
     }

@@ -16,11 +16,12 @@ class CreateOrderItem extends Migration
             $table->increments('id');
             $table->integer('id_order');
             $table->integer('id_item');
-            $table->string('observação');
+            $table->string('observacao');
             $table->string('referencia');
             $table->integer('id_pessoa');
             $table->integer('status');
             $table->integer('id_preco');
+            $table->integer('qtd');
             $table->timestamps();
         });
     }

@@ -63,6 +63,7 @@
             <script src="/admin/assets/vendor/snap-svg/snap.svg.js"></script>
             <script src="/admin/assets/vendor/liquid-meter/liquid.meter.js"></script>
             <script src="/global/js/ng-map.min.js"></script>
+            <script src="/admin/assets/vendor/angular-loading-bar-master/build/loading-bar.min.js"></script>
             <script src="/admin/assets/javascripts/mask.js"></script>
             <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
 

@@ -47,7 +47,7 @@
                         <li>
                             <a href="/painel/pedidos/andamento">
                             <i class="fa fa-hourglass-2"></i>
-                            Em andamentos
+                            Em andamento
                             </a>
                         </li>
 

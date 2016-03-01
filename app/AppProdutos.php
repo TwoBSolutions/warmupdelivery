@@ -16,6 +16,8 @@ class AppProdutos extends Model
 			'id_categoria',
 			'id_marca',
 			'tags',
-			'picture'
+			'picture',
+			'estoque',
+			'estoque_min'
 			];
 }

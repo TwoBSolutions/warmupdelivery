@@ -23,4 +23,6 @@ class PedidoController extends Controller
     private function pegarPedidoAtivo(){
 
     }
+
+   
 }

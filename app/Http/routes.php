@@ -36,7 +36,11 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::group(['prefix' => 'painel', 'as' => 'painel'], function () {
 
-            Route::get('', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
+        Route::get('', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
+        Route::group(['prefix' => 'dashboard'], function () {
+            Route::get('realtime', ['as' => 'dashboard.realtime', 'uses' => 'DashboardController@realTime']);
+
+        });
 
         Route::get('logout', ['as' => 'logoutPainel', 'uses' => 'UsuariosController@sairPainel']);
 
@@ -71,7 +75,7 @@ Route::group(['middleware' => 'web'], function () {
         });
 
         Route::group(['prefix' => 'promocao
-        ', ], function () {
+        '], function () {
             Route::get('', ['as' => 'promocoes', 'uses' => 'PromocaoController@listar']);
             Route::get('nova', ['as' => 'promocoesCreate', 'uses' => 'PromocaoController@create']);
             Route::post('nova', ['as' => 'promocoesNovo', 'uses' => 'PromocaoController@PostNovo']);
@@ -98,6 +102,7 @@ Route::group(['middleware' => 'web'], function () {
         });
         Route::group(['prefix' => 'pedidos'], function () {
             Route::get('create', ['as' => 'criarPedido', 'uses' => 'PedidosController@novoPedido']);
+            Route::post('create', ['as' => 'pedidos.save.painel', 'uses' => 'PedidosController@gravarPedidoPainel']);
 
             Route::get('novos', ['as' => 'pedidosNovos', 'uses' => 'PedidosController@listPedidosNovos']);
             Route::get('finalizados', ['as' => 'pedidosFinalizados', 'uses' => 'PedidosController@listPedidosFinalizados']);
@@ -111,7 +116,7 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('', ['as' => 'usuarios', 'uses' => 'UsuariosController@index']);
             Route::get('cadastro', ['as' => 'usuarios_cadastro_get', 'uses' => 'UsuariosController@cadastrar']);
             Route::post('cadastrar', ['as' => 'cadastrar_usuario', 'uses' => 'UsuariosController@cadastro']);
-            Route::get('user/{id}', ['as' => 'atualizar_usuario', 'uses' => 'UsuariosController@atualizar']);
+            Route::get('user/{id}', ['as' => 'user.atualizar', 'uses' => 'UsuariosController@atualizar']);
             Route::post('update/{id}', ['as' => 'cadastrar_usuario', 'uses' => 'UsuariosController@update']);
             Route::get('ativar/{id}', ['as' => 'cadastrar_usuario', 'uses' => 'UsuariosController@ativar']);
             Route::get('desativar/{id}', ['as' => 'cadastrar_usuario', 'uses' => 'UsuariosController@desativar']);
@@ -119,7 +124,7 @@ Route::group(['middleware' => 'web'], function () {
             Route::post('cadastrar', ['as' => 'cadastrar_usuario', 'uses' => 'UsuariosController@cadastro']);
 
         });
-         Route::group(['prefix' => 'clientes'], function () {
+        Route::group(['prefix' => 'clientes'], function () {
             Route::get('', ['as' => 'clientes', 'uses' => 'ClientesController@index']);
             Route::get('novo', ['as' => 'clistes_novo', 'uses' => 'ClientesController@cadastrar']);
             Route::post('create', ['as' => 'clientes_create', 'uses' => 'ClientesController@create']);
@@ -129,6 +134,22 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('desativar/{id}', ['as' => 'cadastrar_cliente', 'uses' => 'ClientesController@desativar']);
             Route::get('delete/{id}', ['as' => 'cadastrar_cliente', 'uses' => 'ClientesController@delete']);
             Route::post('cadastrar', ['as' => 'cadastrar_cliente', 'uses' => 'ClientesController@cadastro']);
+
+        });
+
+        Route::group(['prefix' => 'json'], function () {
+
+            Route::group(['prefix' => 'usuarios'], function () {
+                Route::get('', ['as' => 'json.users.all', 'uses' => 'ClientesController@index']);
+                Route::get('user/{id}', ['as' => 'json.user', 'uses' => 'ClientesController@getUser']);
+
+            });
+
+            Route::group(['prefix' => 'produtos'], function () {
+                Route::get('', ['as' => 'json.produtos.all', 'uses' => 'ProdutoController@jsonAll']);
+                Route::get('produto/{id}', ['as' => 'json.produto', 'uses' => 'ProdutoController@jsonGet']);
+
+            });
 
         });
 

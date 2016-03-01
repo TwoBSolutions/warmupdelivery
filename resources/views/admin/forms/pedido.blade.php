@@ -1,5 +1,5 @@
 <div ng-controller="CreatePedidosCtrl" ng-cloak>
-<div role="tabpanel">
+<div role="tabpanel" class='tabs-pedido'>
 
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
@@ -7,19 +7,23 @@
 			<a href="#clientes" aria-controls="clientes" role="tab" data-toggle="tab">Selecionar Cliente</a>
 		</li>
 		<li role="presentation">
-			<a href="#produtos" aria-controls="produtos" role="tab" data-toggle="tab">produtos</a>
+			<a href="#produtos" aria-controls="produtos" role="tab" data-toggle="tab">Produtos</a>
+		</li>
+		<li role="presentation">
+			<a href="#enderecos" aria-controls="enderecos" role="tab" data-toggle="tab">Endereço de entrega</a>
 		</li>
 	</ul>
 
 	<!-- Tab panes -->
-	<div class="tab-content">
+	<div class="tab-content ">
 		<div role="tabpanel" class="tab-pane fade in active" id="clientes">
 			@if (isset($clientes))
 <div class="panel-heading">
-		<div class="btn-group" role="group" aria-label="...">
+<!-- 		<div class="btn-group" role="group" aria-label="...">
   	<button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Novo Cliente</button>
 	<button type="button" class="btn btn-danger"> Pedido Sem Cadastro</button>
-</div>
+	
+</div> -->
 	</div>
 
 	<table class="table table-hover datatable">
@@ -86,6 +90,7 @@
 				<th>Descrição</th>
 				<th>Preço</th>
 				<th>Status</th>
+				<th>Estoque</th>
 				<th>Logo</th>
 				<th></th>
 			</tr>
@@ -94,7 +99,9 @@
 			@foreach ($produtos as $produto)
 				<tr id='linha{{$produto->id}}'>
 					
-					<td>{{$produto->id}}</td>
+					<td>{{$produto->id}}
+
+					</td>
 					<td>{{$produto->titulo}}</td>
 					<td>{{$produto->descricao}}</td>
 					<td>{{$produto->valor}}</td>
@@ -107,11 +114,16 @@
 					Inativa
 					@endif
 					</td>
+					<td>{{$produto->estoque}}</td>
 					<td class='img_prev_cat'>
 					<img src="/files/images/{{$produto->picture}}" alt="">
 					</td>
 					<td>
-						<button  type="button" ng-click="alerta()" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Adicionar</button>
+					@if ($produto->estoque >= $produto->estoque_min)
+						<button  type="button" ng-click="addIten({{$produto->id}})" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Adicionar</button>
+					@else
+						Sem estoque
+					@endif
 						
 						
 						
@@ -128,6 +140,91 @@
 		</tbody>
 	</table>
 	@endif
+		</div>
+		<div role="tabpanel" class="tab-pane fade" id="enderecos">
+		<div ng-if="!pedido.user">
+			Selecione um cliente para ver os endereços cadastrados
+		</div>
+		<div class="panel panel-default" ng-if="pedido.user.enderecos">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Rua</th>
+						<th>Numero</th>
+						<th>Bairro</th>
+						<th>Complemento</th>
+						<th>Observação</th>
+						<th></th>
+					</tr>
+					
+				</thead>
+				<tbody>
+					<tr ng-repeat="(i, end) in pedido.user.enderecos">
+						<td>@{{end.id}}</td>
+						<td>@{{end.rua}}</td>
+						<td>@{{end.numero}}</td>
+						<td>@{{end.bairro}}</td>
+						<td>@{{end.complemento}}</td>
+						<td>@{{end.observacao}}</td>
+						<td>
+							<button type="button" ng-click="pedido.endereco = end" class="btn btn-sm btn-info"><i class="fa fa-check"></i></button>
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+
+		<div class="panel panel-info">
+			
+				<legend>Endereço para entrega</legend>
+				<button type="button" ng-click="pedido.endereco = {}" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i> Limpar</button>
+			
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-10">
+								<label for="rua">Rua</label>
+								<input type="text" class="form-control" ng-model="pedido.endereco.rua" name="rua" id="rua" placeholder="Rua">
+						</div>
+						<div class="col-md-2">
+								<label for="rua">Numero</label>
+								<input type="text" class="form-control" ng-model="pedido.endereco.numero" name="numero" id="numero" placeholder="numero">
+						</div>
+					</div>
+			
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-6">
+								<label for="rua">Bairro</label>
+								<input type="text" class="form-control" ng-model="pedido.endereco.bairro" name="bairro" id="bairro" placeholder="Bairro">
+						</div>
+						<div class="col-md-6">
+								<label for="rua">complemento</label>
+								<input type="text" class="form-control" ng-model="pedido.endereco.complemento" name="complemento" id="complemento" placeholder="complemento">
+						</div>
+					</div>
+			
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-12">
+								<label for="rua">Observação</label>
+								<input type="text" class="form-control" ng-model="pedido.endereco.observacao" name="observacao" id="observacao" placeholder="observacao">
+						</div>
+						
+					</div>
+			
+				</div>
+			
+				
+			
+				
+			
+		</div>
+
+
 		</div>
 	</div>
 </div>
@@ -161,36 +258,43 @@
 									</div>
 								</header>
 								<div class="bill-info">
-									<div class="row">
+									<div class="row" ng-if="pedido.user" ng-cloak>
 										<div class="col-md-4">
 											<div class="bill-to">
-												<p class="h5 mb-xs text-dark text-semibold">To:</p>
-												<address>
-													Jeandro Couto
+												<p class="h5 mb-xs text-dark text-semibold">Cliente:</p>
+												<address ng-cloak>
+													@{{ pedido.user.nome }}
 													<br/>
-													Rua Osvaldo Cruz 1092 ap 403 Neva Cascavel
+													@{{pedido.endereco.rua}} @{{pedido.endereco.numero}} @{{pedido.endereco.complemento}} @{{pedido.endereco.bairro}}
+													<br>
+													<small>@{{pedido.endereco.observacao}}</small>
 													<br/>
-													Fone: (44) 99898575
+													Fone: @{{pedido.user.fone}} @{{pedido.user.fone2}}
 													<br/>
-													jeandro.couto@gmail.com
+													@{{pedido.user.email}}
 												</address>
 											</div>
 										</div>
 										<div class="col-md-8">
 											<div class="bill-data text-right">
 												<p class="mb-none">
-													<span class="text-dark">Data/Hora Pedido:</span>
-													<span class="value">05/03/2016 00:30:00</span>
+													<span class="text-dark">Data:</span>
+													<span class="value">@{{date | date:'dd/MM/yyyy HH:mm:ss'}}</span>
 												</p>
-												<p class="mb-none">
+												<!-- <p class="mb-none">
 													<span class="text-dark">Data/Hora Envio/Entrega:</span>
 													<span class="value">05/03/2016 00:45:00</span>
-												</p>
+												</p> -->
 											</div>
 										</div>
 									</div>
 								</div>
-							
+								<div class="form-group">
+									<label for="inputObser" class="col-sm-2 control-label">Observação:</label>
+									<div class="col-sm-10">
+										<input type="text" name="observacao" id="inputObser" class="form-control" ng-model='pedido.observacao'>
+									</div>
+								</div>
 								<div class="table-responsive">
 									<table class="table invoice-items">
 										<thead>
@@ -204,22 +308,30 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>123456</td>
-												<td class="text-semibold text-dark">Whisk Jack Daniel's</td>
-												<td></td>
-												<td class="text-center">R$ 119,99</td>
-												<td class="text-center">1</td>
-												<td class="text-center">R$ 119,99</td>
+											<tr ng-repeat="(i, item) in pedido.itens" ng-cloak>
+												<td>@{{item.id}}</td>
+												<td class="text-semibold text-dark">@{{item.titulo}}</td>
+												<td>@{{item.descricao}}</td>
+												<td class="text-center">@{{item.valor}}</td>
+												<td class="text-center">
+												<div ng-if='item.qtd > item.estoque' class="alert alert-warning">
+														Faltam @{{item.qtd - item.estoque}} itens no estoque
+												</div>
+												
+												<div class="input-group">
+												
+											      <span class="input-group-btn">
+												<button type="button" ng-click="removeItem(item.id)" class="btn  btn-danger"><i class="fa fa-eraser"></i></button>
+											      
+											      </span>
+
+											     	<input type='number' min="1" ng-change='itemUpdateQtd(item.id)' ng-model='item.qtd' class='form-control'></input>
+											    </div><!-- /input-group -->
+											
+												
+												<td class="text-center">@{{(item.qtd * item.valor | currency: ' R$ ')}}</td>
 											</tr>
-											<tr>
-												<td>654321</td>
-												<td class="text-semibold text-dark">Red Bull 473ml</td>
-												<td></td>
-												<td class="text-center">R$ 15,00</td>
-												<td class="text-center">3</td>
-												<td class="text-center">R$ 45,00</td>
-											</tr>
+											
 										</tbody>
 									</table>
 								</div>
@@ -231,15 +343,18 @@
 												<tbody>
 													<tr class="b-top-none">
 														<td colspan="2">Subtotal</td>
-														<td class="text-left">R$ 164,00</td>
+														<td class="text-left"> @{{ pedido.subtotal | currency: ' R$ '}}</td>
 													</tr>
 													<tr>
 														<td colspan="2">Desconto</td>
-														<td class="text-left">R$ 0,00</td>
+														<td class="text-left"> R$
+															<input type='text' ng-change='updateValuePedido()' ng-model='pedido.desconto' class='form-control'></input>
+															
+														</td>
 													</tr>
 													<tr class="h4">
-														<td colspan="2">Grand Total</td>
-														<td class="text-left">R$ 164,00</td>
+														<td colspan="2">Total</td>
+														<td class="text-left">@{{ pedido.total | currency: ' R$ '}}</td>
 													</tr>
 												</tbody>
 											</table>
@@ -249,7 +364,7 @@
 							</div>
 
 							<div class="text-right mr-lg">
-								<a href="#" class="btn btn-default"><i class="fa fa-save"></i> Gravar Pedido</a>
+								<a  class="btn btn-default" ng-if='pedido.id_user && pedido.itens' ng-click="savePedido()"><i class="fa fa-save"></i> Gravar Pedido</a>
 								<a href="pages-invoice-print.html" target="_blank" class="btn btn-primary ml-sm"><i class="fa fa-print"></i> Print</a>
 							</div>
 						</div>

@@ -29,6 +29,24 @@ class ProdutoController extends Controller
         return view('admin.listaProdutos',['produtos'=>$produtos,$erro]);
     }
 
+
+   public function jsonAll($erro =null)
+    {
+       return $produtos = AppProdutos::join('precos','precos.id','=','produtos.id_preco')
+        ->select('produtos.*','precos.valor')
+        ->get();
+        
+    }
+
+    public function jsonGet($id)
+    {
+       return $produtos = AppProdutos::join('precos','precos.id','=','produtos.id_preco')
+        ->select('produtos.*','precos.valor')
+        ->where('produtos.id',$id)
+        ->get();
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      *

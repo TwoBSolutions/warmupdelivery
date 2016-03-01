@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\AppConfig;
 use App\User;
 use App\AppProdutos;
+use App\AppOrder;
+use App\AppOrderItem;
 
 class PedidosController extends Controller
 {
@@ -24,11 +26,46 @@ class PedidosController extends Controller
 
     public function novoPedido(){
         $clientes = User::where('tipo','CLIENTE')->get();
-        $produtos = AppProdutos::get();
+        $produtos = AppProdutos::join('precos','precos.id','=','produtos.id_preco')
+        ->select('produtos.*','precos.valor')->get();
 
         return view('admin.pedidoCriar',compact('clientes','produtos'));
     }
-    public function pedidoPost(Request $request){
+    public function gravarPedidoPainel(Request $request){
+    
+       $pedido = new AppOrder;
+       $pedido->id_pessoa = $request->id_user;
+       $pedido->status = 3;
+       $pedido->local = $request->local;
+       $pedido->observacao = $request->observacao;
+       $pedido->desconto = $request->desconto;
+       $pedido->subtotal = $request->subtotal;
+       $pedido->total = $request->total; 
+       $pedido->rua = $request->endereco['rua'];
+       $pedido->numero = $request->endereco['numero'];
+       $pedido->bairro = $request->endereco['bairro'];
+       $pedido->endereco_observacao = $request->endereco['observacao'];
+       if ($pedido->save()) {
+                 if ($request->itens) {
+                       foreach ($request->itens as $key => $item) {
+                            $_item = new AppOrderItem;
+                            $_item->id_item = $item['id'];
+                            $_item->id_preco = $item['id_preco'];
+                            $_item->id_order = $pedido->id;
+                            $_item->id_pessoa = $request->id_user;
+                            $_item->save();
+                          
+                       }
+                   }
+
+                   return ['status'=>'sucesso'];
+       }
+
+
+
+    
+
+
 
     }
 
@@ -39,21 +76,26 @@ class PedidosController extends Controller
     }
 
       public function listPedidosNovos(){
+        $pedidos = AppOrder::where('order.status',3)
+        ->join('users','users.id','=','order.id_pessoa')
+        ->select('order.*','users.nome','users.fone','users.fone2')
+        ->orderBy('order.created_at','desc')
+        ->get();
 
-        return view('admin.pedidosNovos');
+        return view('admin.pedidosNovos',compact('pedidos'));
     }
-public function listPedidosFinalizados(){
-    return view('admin.pedidosFinalizados');
-}
-public function listPedidosAndamento(){
-    return view('admin.pedidosAndamento');
-}
-public function listPedidosAll(){
-    return view('admin.pedidosAll');
-}
-public function listPedidosCancelados(){
-    return view('admin.pedidosCancelados');
-}
+    public function listPedidosFinalizados(){
+        return view('admin.pedidosFinalizados');
+    }
+    public function listPedidosAndamento(){
+        return view('admin.pedidosAndamento');
+    }
+    public function listPedidosAll(){
+        return view('admin.pedidosAll');
+    }
+    public function listPedidosCancelados(){
+        return view('admin.pedidosCancelados');
+    }
 
 
     /**

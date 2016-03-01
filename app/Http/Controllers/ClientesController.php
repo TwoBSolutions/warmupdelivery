@@ -34,6 +34,18 @@ class ClientesController extends Controller
         return view('admin.logar');
     }
 
+    public function getUser($id){
+        $cliente = User::where('users.id',$id)->where('tipo','<>','ROOT')
+        ->leftJoin('endereco','endereco.id_pessoa','=','users.id','endereco.principal','=',1,'endereco.status','=',1)
+        ->select('users.*','endereco.rua','endereco.numero','endereco.bairro','endereco.complemento','endereco.referencia','endereco.observacao')
+        ->first();
+
+        $enderecos = AppEnderecos::where('id_pessoa',$id)->where('status',1)->get();
+
+        return [$cliente,$enderecos];
+
+    }
+
 
 
     public function cadastrar()

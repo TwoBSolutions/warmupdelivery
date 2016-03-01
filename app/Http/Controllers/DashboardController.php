@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\AppOrder;
+use App\User;
 
 use App\AppConfig;
 
@@ -19,8 +21,18 @@ class DashboardController extends Controller
     public function index()
     {
         $config = AppConfig::first();
+        $entregadores = User::where('tipo','ENTREGA')->get();
+        return view('admin.index',compact('config','pedidos'));
+    }
 
-        return view('admin.index',compact('config'));
+    public function realTime(){
+        $pedidosEntrega = AppOrder::where('order.tipo','ENTREGA')->where('order.status',3)
+        ->join('users','users.id','=','order.id_pessoa')
+        ->get();
+        $pedidos = AppOrder::join('users','users.id','=','order.id_pessoa')
+        ->get();
+        $clientes = User::where('tipo','CLIENTE')->get();
+        return compact('pedidosEntrega','clientes','pedidos');
     }
 
     /**
