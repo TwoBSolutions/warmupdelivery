@@ -45,6 +45,7 @@
 		<link rel="stylesheet" href="/admin/assets/vendor/select2/select2.css" />
 		<link rel="stylesheet" href="/admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
 		<link rel="stylesheet" href="/admin/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+		<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
 
 		<!-- Specific Page Vendor CSS -->

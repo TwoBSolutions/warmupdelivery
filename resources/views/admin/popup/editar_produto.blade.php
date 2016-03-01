@@ -73,7 +73,7 @@
 		
 					<input ng-model='produto._token' type="hidden" name="_token" value="{{ csrf_token() }}">
 					<input ng-model='produto.id' type="hidden" value='@{{produto.id}}' name="id" >
-					@{{produto}}
+					
 
 
 			</div>

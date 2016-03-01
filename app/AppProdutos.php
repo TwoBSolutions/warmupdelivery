@@ -18,6 +18,9 @@ class AppProdutos extends Model
 			'tags',
 			'picture',
 			'estoque',
-			'estoque_min'
+			'estoque_min',
+			'destaque',
+			'pagina_inicial',
+			'ordem'
 			];
 }

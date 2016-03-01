@@ -140,9 +140,9 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editar($id)
     {
-        return ['produto'=>AppProdutos::find($id)
+         ['produto'=>AppProdutos::find($id)
         ->join('precos','precos.id','=','produtos.id_preco')
         ->select('produtos.*','precos.valor'),'marcas'=>AppMarcas::get(),'categorias'=>AppCategorias::get()];
 

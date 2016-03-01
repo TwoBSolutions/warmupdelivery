@@ -16,8 +16,9 @@ class CreateOrder extends Migration
             $table->increments('id');
             $table->integer('id_pessoa');
             $table->string('observacao');
-            $table->string('tipo');
+            $table->string('entrega');
             $table->string('local');
+            $table->string('grupo_cor');
             $table->string('rua');
             $table->integer('numero');
             $table->integer('complemento');

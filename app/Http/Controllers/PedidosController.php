@@ -11,6 +11,7 @@ use App\User;
 use App\AppProdutos;
 use App\AppOrder;
 use App\AppOrderItem;
+use App\AppOrderCobranca;
 
 class PedidosController extends Controller
 {
@@ -35,17 +36,24 @@ class PedidosController extends Controller
     
        $pedido = new AppOrder;
        $pedido->id_pessoa = $request->id_user;
-       $pedido->status = 3;
+       $pedido->status = 1;
        $pedido->local = $request->local;
        $pedido->observacao = $request->observacao;
        $pedido->desconto = $request->desconto;
        $pedido->subtotal = $request->subtotal;
        $pedido->total = $request->total; 
+       $pedido->entrega = $request->entrega;
        $pedido->rua = $request->endereco['rua'];
        $pedido->numero = $request->endereco['numero'];
        $pedido->bairro = $request->endereco['bairro'];
        $pedido->endereco_observacao = $request->endereco['observacao'];
        if ($pedido->save()) {
+
+                $cobranca = new AppOrderCobranca;
+                $cobranca->id_order =$pedido->id;
+                $cobranca->id_pessoa =$request->id_user;
+                $cobranca->valor = $pedido->total;
+                $cobranca->save();
                  if ($request->itens) {
                        foreach ($request->itens as $key => $item) {
                             $_item = new AppOrderItem;

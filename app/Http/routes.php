@@ -70,6 +70,7 @@ Route::group(['middleware' => 'web'], function () {
             Route::post('novo', ['as' => 'setProduto', 'uses' => 'ProdutoController@store']);
             Route::delete('delete/{id}', ['as' => 'delProduto', 'uses' => 'ProdutoController@destroy']);
             Route::post('update', ['as' => 'putProduto', 'uses' => 'ProdutoController@update']);
+            Route::get('editar/{id}', ['as' => 'produto.editar', 'uses' => 'ProdutoController@editar']);
             Route::put('status/{id}/{sts}', ['as' => 'putProduto', 'uses' => 'ProdutoController@setstatus']);
             Route::get('update/{id}', ['as' => 'getProduto', 'uses' => 'ProdutoController@getProduto']);
         });

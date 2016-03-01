@@ -24,6 +24,9 @@ class CreateProdutos extends Migration
             $table->integer('estoque_min')->default(1);
             $table->integer('id_categoria');
             $table->string('tags');
+            $table->integer('destaque');
+            $table->integer('pagina_inicial');
+            $table->integer('ordem');
             $table->string('picture');
             $table->timestamps();
         });

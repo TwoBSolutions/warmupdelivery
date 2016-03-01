@@ -56,6 +56,7 @@
             <script src="/admin/assets/vendor/flot/jquery.flot.pie.js"></script>
             <script src="/admin/assets/vendor/flot/jquery.flot.categories.js"></script>
             <script src="/admin/assets/vendor/flot/jquery.flot.resize.js"></script>
+            <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
             <script src="/admin/assets/vendor/jquery-sparkline/jquery.sparkline.js"></script>
             <script src="/admin/assets/vendor/raphael/raphael.js"></script>
             <script src="/admin/assets/vendor/morris/morris.js"></script>
@@ -70,6 +71,11 @@
 
       
             <script src="/admin/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+
+
+          <!-- Examples -->
+          <script src="/admin/assets/javascripts/forms/examples.advanced.form.js" /></script>
        
 
             <!-- Theme Base, Components and Settings -->
@@ -90,6 +96,12 @@
             
             <script>
            jQuery(document).ready(function($) {
+            $(function() {
+                $('.toggleBtn').bootstrapToggle({
+                  on: 'Sim',
+                  off: 'Não'
+                });
+              })
 
               $(document).ready(function(){
                 $('.datatable').DataTable();

@@ -2,7 +2,7 @@
 @section('titlepage','Adicionar Produto')
 @section('content')
 
-{!! Form::open(array('action' => 'ProdutoController@store','method'=>'post','enctype'=>'multipart/form-data')) !!}
+{!! Form::model($produto,array('action' => 'ProdutoController@update','method'=>'post','enctype'=>'multipart/form-data')) !!}
 
 	@include('admin.forms.novoProduto')
 {!! Form::close() !!}

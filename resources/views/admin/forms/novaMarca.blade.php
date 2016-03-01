@@ -1,11 +1,11 @@
 <div class="formulario col-md-10 col-md-offset-1" ng-controller="CategoriaCtrl">
 						<input type="hidden" name="_token" value="{{csrf_token()}}">
 	
-		<legend>Nova Categoria</legend>
+		<legend>Nova marca</legend>
 	
 		<div class="form-group">
 			<label for="">Nome:</label>
-			<input name='titulo' type="text" class="form-control" id="nome_categoria" placeholder="Nome da Categoria">
+			<input name='titulo' type="text" class="form-control" id="nome_marca" placeholder="Nome da marca">
 		</div>
 		<div class="form-group">
 			<label for="">Descrição:</label>
