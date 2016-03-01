@@ -41,7 +41,7 @@
 					<img src="/files/images/{{$produto->picture}}" alt="">
 					</td>
 					<td>
-						<button  ng-click="modalcat({{$produto->id}})" type="button" ng-click="alerta()" class="btn btn-sm btn-primary">Editar</button>
+						<a  href="/painel/produtos/editar/{{$produto->id}}" type="button" ng-click="alerta()" class="btn btn-sm btn-primary">Editar</a>
 						@if ($produto->status)
 							<button type="button"  ng-click="status('{{$produto->id}}','0')" class="btn btn-sm btn-danger">Desativar</button>
 						@else

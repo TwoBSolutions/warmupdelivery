@@ -45,7 +45,7 @@
 							</div>
 							<div class="col-md-4">
 								<label for="">Preço:</label>
-							<input name='preco' type="text" class="form-control  money" ng-model='produto.valor' id="preco_produto"  placeholder="Preço" required>
+							<input name='preco' type="text" class="form-control  " ng-model='produto.valor' id="preco_produto"  placeholder="Preço" required>
 					
 							</div>
 								</div>

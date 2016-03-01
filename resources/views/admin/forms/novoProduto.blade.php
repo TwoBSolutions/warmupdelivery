@@ -4,13 +4,8 @@
 			<div class="row">
 				<label for="inputCategoria" class="col-sm-2 control-label">Marca:</label>
 				<div class="col-sm-10">
-					<select name="id_marca" class='form-control' id="inputCategoria"  >
-						<option value="" disabled selected="selected">Selecione Uma marca</option>
-						@foreach ($marcas as $marca)
-						<option value="{{$marca->id}}" >{{$marca->titulo}}</option>
-						
-						@endforeach
-					</select>
+				{{Form::select('id_marca',$marcas,null,['class'=>'form-control'])}}
+					
 				</div>
 			</div>
 			
@@ -19,13 +14,7 @@
 			<div class="row">
 				<label for="inputCategoria" class="col-sm-2 control-label">Categoria:</label>
 				<div class="col-sm-10">
-					<select  class="form-control populate" name="id_categoria" id="inputCategoria" required>
-						<option value="" disabled selected="selected">Selecione Uma categoria</option>
-						@foreach ($categorias as $categoria)
-						<option value="{{$categoria->id}}" >{{$categoria->titulo}}</option>
-						
-						@endforeach
-					</select>
+					{{Form::select('id_categoria',$categorias,null,['class'=>'form-control'])}}
 				</div>
 			</div>
 		</div>
@@ -33,12 +22,14 @@
 		<div class="row">
 			<div class="col-md-8">
 				<label for="nome_produto">Nome:</label>
-			<input name='titulo' type="text" class="form-control" id="nome_produto" placeholder="Nome da produto" required>
+
+			{{Form::text('titulo',null,['class'=>'form-control','placeholder'=>'Nome do produto','required'])}}
 	
 			</div>
 			<div class="col-md-4">
 				<label for="preco_produto">Preço:</label>
-			<input name='preco' type="text" class="form-control money" id="preco_produto"  placeholder="Preço" required>
+				{{Form::text('valor',null,['class'=>'form-control','placeholder'=>'Preço','required'])}}
+			
 	
 			</div>
 			</div>
@@ -48,12 +39,14 @@
 			<div class="col-md-8">
 			
 				<label for="estoque">Quantidade Estoque:</label>
-			<input name='estoque' min='0' type="number" class="form-control" id="estoque" placeholder="Quantidade" required>
+				{{Form::number('estoque',null,['class'=>'form-control','placeholder'=>'Estoque','required','min'=>'0'])}}
+			
 	
 			</div>
 			<div class="col-md-4">
 				<label for="estoque_min">Estoque Mínimo : <i class="fa fa-info-circle"  data-toggle="popover" title="Estoque Minimos" data-content="Ao chegar nesta quantidade o sistema emitira um alerta"></i></label>
-			<input name='estoque_min' min='0' type="number" class="form-control money" id="estoque_min"  placeholder="Preço" value='1'>
+				{{Form::number('estoque_min',null,['class'=>'form-control','placeholder'=>'Estoque Minimo','required','min'=>'0'])}}
+			
 	
 			</div>
 			</div>
@@ -61,15 +54,19 @@
 
 		<div class="form-group">
 			<label for="">Descrição Pequena:</label>
-			<textarea name="descricao" class='form-control' required></textarea>
+			{{Form::textarea('descricao',null,['class'=>'form-control','placeholder'=>'Descrição'])}}
+			
 		</div>
 		<div class="form-group">
 			<label for="">Descrição Longa:</label>
-			<textarea name="texto" class='form-control long_description'></textarea>
+			{{Form::textarea('texto',null,['class'=>'form-control long_description','placeholder'=>'Descrição Completa'])}}
+			
 		</div>
 		<div class="form-group">
 			<label for="">Tags:</label>
-			<input name='tags' type="text" class="form-control tags" id="tags" placeholder="Tags (separadas por virgula)" >
+				{{Form::text('tags',null,['class'=>'form-control tagsinput','placeholder'=>'Tags (separadas por virgula)'])}}
+
+			
 			
 		</div>
 		
@@ -77,12 +74,21 @@
 		<div class="form-group">
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 				<a onclick="pickFile()" class="thumbnail fileupload">
+					@if (isset($produto))
+						@if ($produto->picture)
+							<img src="/files/images/{{$produto->picture}}" id='blah'>
+						@endif
+						{{-- expr --}}
+					@else
 					<img id='blah'>
+					@endif
+					
 				</a>
 			</div>
 			<div class="col-md-4">
 				<label for="">Imagem:</label>
-				<input type="file" name="picture" id='imgInp'  placeholder="Imagem" required>
+				{{Form::file('picture', ['id'=>'imgInp'])}}
+				
 			</div>
 			
 		
@@ -93,14 +99,13 @@
 		
 
 			<label class="checkbox-inline">
-
-			  <input type="checkbox" data-toggle="toggle" name='destaque' data-on="Sim" data-off="Não" onstyle='success' offstyle='warning'> 
-	
-				<i class="fa fa-info-circle"  data-toggle="popover" title="Destaque" data-content="Ao Ativar o Produto vai aparecer como destaque no Aplicativo"></i>
+			{{Form::checkbox('destaque',1)}}
+			<i class="fa fa-info-circle"  data-toggle="popover" title="Destaque" data-content="Ao Ativar o Produto vai aparecer como destaque no Aplicativo"></i>
 			  Destaque
 			</label>
 			<label class="checkbox-inline">
-			  <input type="checkbox" data-toggle="toggle" name='pagina_inicial' data-on="Sim" data-off="Não" onstyle='success' offstyle='warning'> 
+			{{Form::checkbox('pagina_inicial',1)}}
+			
 				<i class="fa fa-info-circle"  data-toggle="popover" title="Destaque" data-content="Ao Ativar o Produto vai aparecer na pagina inicial do Aplicativo"></i>
 
 			  Pagina Inicial
@@ -108,9 +113,10 @@
 		
 		
 		
+			
+			{{Form::hidden('status', '1')}}
 		
-		
-			<input type="hidden" name="sts" value="1">
+			
 		</div>
 		
 	<div class="panel-footer">

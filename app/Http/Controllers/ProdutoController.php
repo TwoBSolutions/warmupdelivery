@@ -47,6 +47,13 @@ class ProdutoController extends Controller
         
     }
 
+    public function produtos_home(){
+         return $produtos = AppProdutos::join('precos','precos.id','=','produtos.id_preco')
+        ->select('produtos.*','precos.valor')
+        ->where('produtos.pagina_inicial',1)
+        ->get();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -55,9 +62,23 @@ class ProdutoController extends Controller
     public function create()
     {
 
-        $marcas = AppMarcas::get();
-        $categorias = AppCategorias::get();
+        $marcas = AppMarcas::select('id','titulo')->get();
+        $categorias = AppCategorias::select('id','titulo')->get();
         return view('admin.novoProduto',compact('marcas','categorias'));
+    }
+
+
+    public function editar($id){
+        $marcas = AppMarcas::get()->lists('titulo','id');
+        $categorias = AppCategorias::get()->lists('titulo','id');
+        $produto = AppProdutos::join('precos','precos.id','=','produtos.id_preco')
+        ->select('produtos.*','precos.valor')
+        ->where('produtos.id',$id)
+        ->first();
+
+        return view('admin.produto',compact('marcas','categorias','produto'));
+
+
     }
 
     /**
@@ -134,28 +155,34 @@ class ProdutoController extends Controller
             return ['status'=>'erros','response'=>'Erro ao Atualizar marca'];
         }
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function editar($id)
-    {
-         ['produto'=>AppProdutos::find($id)
-        ->join('precos','precos.id','=','produtos.id_preco')
-        ->select('produtos.*','precos.valor'),'marcas'=>AppMarcas::get(),'categorias'=>AppCategorias::get()];
 
-          
+    public function AjustaPreco($idprod,$preco){
+
+        $produto = AppProdutos::find($idprod);
+        $old = AppPrecos::find($produto->id_preco);
+        if ($old) {
+            if ($preco != $old->valor) {
+
+                $new = new AppPrecos;
+                $new->valor = $preco;
+                $new->status = 1;
+                $new->id_prod = $produto->id;
+                $new->save();
+                return $new->id;
+            
+            }
+                return $old->id;
+        }
+                $new = new AppPrecos;
+                $new->valor = $preco;
+                $new->id_prod = $produto->id;
+                $new->status = 1;
+                $new->save();
+                return $new->id;
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request)
     {   
 // dd($request->all());
@@ -189,13 +216,10 @@ class ProdutoController extends Controller
         }
 
            // ADICIONA PRECO
-      
-        $preco = new AppPrecos;
-        $preco->valor = $dados['preco'];
-        $preco->status = 1;
-        $preco->save();
+       
+        
 
-        $dados['id_preco'] = $preco->id;
+        $dados['id_preco'] =  $this->AjustaPreco($request->id,$request->valor);
         $produto = AppProdutos::where('id',$dados['id'])->first();
         // dd($produto);
         
@@ -206,10 +230,12 @@ class ProdutoController extends Controller
             'texto'=>$dados['texto'],
             'id_marca'=>$dados['id_marca'],
             'id_categoria'=>$dados['id_categoria'],
+            'pagina_inicial'=>$dados['pagina_inicial'],
+            'destaque'=>$dados['destaque'],
             'id_preco'=>$dados['id_preco']])) {
-            return redirect(route('produtos'));
+            return redirect('/painel/produtos');
        }else{
-         return redirect(route('produtos',['erro'=>'Erro ao Atualizar']));
+         return redirect()->back()->whiteErrors(['error'=>'erro ao atualizar']);
        }
             
 

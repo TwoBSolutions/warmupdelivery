@@ -3,8 +3,9 @@
 @section('content')
 
 {!! Form::model($produto,array('action' => 'ProdutoController@update','method'=>'post','enctype'=>'multipart/form-data')) !!}
-
+	<input type="hidden" name="id" value="{{$produto->id}}">
 	@include('admin.forms.novoProduto')
+
 {!! Form::close() !!}
 
 
