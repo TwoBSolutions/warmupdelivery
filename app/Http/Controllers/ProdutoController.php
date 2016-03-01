@@ -43,7 +43,7 @@ class ProdutoController extends Controller
        return $produtos = AppProdutos::join('precos','precos.id','=','produtos.id_preco')
         ->select('produtos.*','precos.valor')
         ->where('produtos.id',$id)
-        ->get();
+        ->first();
         
     }
 

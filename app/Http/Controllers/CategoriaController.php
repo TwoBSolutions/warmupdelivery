@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Image;
 use DB;
-
+use App\AppProdutos;
 use App\AppCategorias;
 
 class CategoriaController extends Controller
@@ -26,6 +26,16 @@ class CategoriaController extends Controller
      public function jsonActive()
     {
         return AppCategorias::get()->where('status',1);
+    }
+
+    public function jsonWhitProd($id){
+        $categoria = AppCategorias::find($id);
+        $produtos = $produtos = AppProdutos::join('precos','precos.id','=','produtos.id_preco')
+        ->select('produtos.*','precos.valor')
+        ->where('produtos.id_categoria',$id)
+        ->get();
+
+        return compact('categoria','produtos');
     }
 
     /**

@@ -158,7 +158,7 @@ Route::group(['middleware' => 'web'], function () {
 
             Route::group(['prefix' => 'produtos'], function () {
                 Route::get('', ['as' => 'json.produtos.all', 'uses' => 'ProdutoController@jsonAll']);
-                Route::get('produto/{id}', ['as' => 'json.produto', 'uses' => 'ProdutoController@jsonGet']);
+               
 
             });
 
@@ -183,10 +183,11 @@ Route::group(['middleware' => 'web'], function () {
             Route::group(['prefix' => 'produtos'], function () {
                 Route::get('', ['as' => 'apiprodutos', 'uses' => 'ApiController@produtos']);
                 Route::get('home', ['as' => 'api.produtos.home', 'uses' => 'ProdutoController@produtos_home']);
+                 Route::get('produto/{id}', ['as' => 'json.produto', 'uses' => 'ProdutoController@jsonGet']);
             });
             Route::group(['prefix' => 'categorias'], function () {
                 Route::get('', ['as' => 'categoria.all.json', 'uses' => 'CategoriaController@jsonActive']);
-            
+                 Route::get('{id}', ['as' => 'categoria.all.json.prod', 'uses' => 'CategoriaController@jsonWhitProd']);
             });
         });
          Route::group(['prefix' => 'autenticado'], function () {
