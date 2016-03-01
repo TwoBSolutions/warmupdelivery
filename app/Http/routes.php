@@ -179,7 +179,14 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('recuperarsenha', ['as' => 'senha', 'uses' => 'ApiController@senha']);
         });
 
+
+        // JSONS
+
         Route::group(['prefix' => 'json'], function () {
+             Route::get('', function () {
+            return 'Retorna Jsons';
+
+             });
             Route::group(['prefix' => 'produtos'], function () {
                 Route::get('', ['as' => 'apiprodutos', 'uses' => 'ApiController@produtos']);
                 Route::get('home', ['as' => 'api.produtos.home', 'uses' => 'ProdutoController@produtos_home']);
@@ -190,7 +197,12 @@ Route::group(['middleware' => 'web'], function () {
                  Route::get('{id}', ['as' => 'categoria.all.json.prod', 'uses' => 'CategoriaController@jsonWhitProd']);
             });
         });
-         Route::group(['prefix' => 'autenticado'], function () {
+
+
+        // JSONS
+
+
+        Route::group(['prefix' => 'autenticado'], function () {
             Route::group(['prefix' => 'user/{id}'], function () {
                 Route::get('', ['as' => 'api.user.info', 'uses' => 'ClientesController@getUser']);
                 Route::get('pedidos', ['as' => 'api.user.info', 'uses' => 'ApiController@user_pedidos']);

@@ -25,7 +25,7 @@ class CategoriaController extends Controller
 
      public function jsonActive()
     {
-        return AppCategorias::get()->where('status',1);
+        return AppCategorias::get();
     }
 
     public function jsonWhitProd($id){
