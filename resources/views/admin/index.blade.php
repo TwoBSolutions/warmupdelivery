@@ -13,14 +13,14 @@
     </div>
   </div>
 
-<div class="panel  col-md-6" >
+<div class="panel  col-md-12" >
       <div class="panel-heading">
             <h3 class="panel-title">Ultimos Pedidos (Resumo)</h3>
       </div>
       <div class="panel-body">
     
   
-            <table class="table table-hover" ng-if="pedidos">
+            <table class="table table-hover " ng-if="pedidos">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -28,6 +28,7 @@
                         <th>Valor Total</th>
                         <th>Cliente (Nome)</th>
                         <th>Cliente (Telefone)</th>
+                        <th></th>
                        
                     </tr>
                 </thead>
@@ -38,36 +39,28 @@
                         <td>@{{pedido.total | currency:' R$ '}}</td>
                         <td>@{{pedido.nome}}</td>
                         <td>@{{pedido.fone}} @{{pedido.fone2}}</td>
+                        <td>
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Ação <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Ver Detalhes</a></li>
+                              <li><a href="#">Imprimir</a></li>
+                              <li role="separator" class="divider">situação</li>
+                              <li><a href="#">Enviar para entrega</a></li>
+                              <li><a href="#">Cancelar</a></li>
+
+                            </ul>
+                          </div>
+                        </td>
                       
                     </tr>
                 </tbody>
             </table>
       </div>
 </div>
-<div class="panel  col-md-6">
-      <div class="panel-heading">
-            <h3 class="panel-title">Feedbacks (Resumo)</h3>
-      </div>
-      <div class="panel-body">
-      @if (isset($feedback))
-        <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-      @else
-        Não existe nenhum Feedback
-      @endif
-           
-      </div>
-</div>
+
 
 <div class="panel  col-md-12">
       <div class="panel-heading">
