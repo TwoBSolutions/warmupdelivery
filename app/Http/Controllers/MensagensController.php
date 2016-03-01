@@ -14,4 +14,10 @@ class MensagensController extends Controller
     public function index(){
     	return view('admin.mensagens');
     }
+
+    public function alertas(){
+    	return view('admin.alertas');
+
+    }
+    
 }
