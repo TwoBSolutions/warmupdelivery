@@ -23,6 +23,11 @@ class CategoriaController extends Controller
         return view('admin.listaCategorias',['categorias'=>AppCategorias::get()]);
     }
 
+     public function jsonActive()
+    {
+        return AppCategorias::get()->where('status',1);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

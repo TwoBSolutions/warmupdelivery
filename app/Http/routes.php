@@ -184,6 +184,10 @@ Route::group(['middleware' => 'web'], function () {
                 Route::get('', ['as' => 'apiprodutos', 'uses' => 'ApiController@produtos']);
                 Route::get('home', ['as' => 'api.produtos.home', 'uses' => 'ProdutoController@produtos_home']);
             });
+            Route::group(['prefix' => 'categorias'], function () {
+                Route::get('', ['as' => 'categoria.all.json', 'uses' => 'CategoriaController@jsonActive']);
+            
+            });
         });
          Route::group(['prefix' => 'autenticado'], function () {
             Route::group(['prefix' => 'user/{id}'], function () {
