@@ -62,52 +62,7 @@
 </div>
 
 
-<div class="panel  col-md-12">
-      <div class="panel-heading">
-            <h3 class="panel-title">Clientes</h3>
-      </div>
-      <div class="panel-body">
-           
-          <table class="table table-hover" ng-if='clientes'>
-                <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>
-                      Foto
-                      </th>
-                      <th>Nome/Sobrenome</th>
-                      <th>Email</th>
-                      <th>Telefone</th>
-                      <th>Status</th>
-                      
-                   
-                    </tr>
-                </thead>
-                <tbody>
-                   <tr ng-repeat="(key, $user) in clientes" ng-cloak>
-                      <td>@{{ $user.id }}</td>
-                      <td class='profile_pic_min'><img src="/files/profiles/@{{ $user.foto }}" alt=""></td>
-                      <td>@{{ $user.nome }} @{{ $user.sobrenome }}</td>
-                      <td>@{{ $user.email }}</td>
-                      <td>@{{ $user.fone }}</td>
-                      <td ng-if="$user.status==1">
-                          <i class="fa fa-toggle-on sts_on"></i>
-                          Ativo
-                         
-                         
-                      </td>
-                      <td ng-if="$user.status !=1">
-                         <i class="fa fa-toggle-off sts_off"></i>
-                          Bloqueado
-                      </td>
-                    
-                      
-                    </tr>
-                </tbody>
-            </table>
-        <div ng-if='!clientes'> Nâo exite nenhum cliente cadastrado!</div>
-      </div>
-</div>
+
 
 <div class="panel  col-md-12">
       <div class="panel-heading">
@@ -154,6 +109,52 @@
 
          </ng-map>
      </div>
+</div>
+<div class="panel  col-md-12">
+      <div class="panel-heading">
+            <h3 class="panel-title">Clientes</h3>
+      </div>
+      <div class="panel-body">
+           
+          <table class="table table-hover" ng-if='clientes'>
+                <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>
+                      Foto
+                      </th>
+                      <th>Nome/Sobrenome</th>
+                      <th>Email</th>
+                      <th>Telefone</th>
+                      <th>Status</th>
+                      
+                   
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr ng-repeat="(key, $user) in clientes" ng-cloak>
+                      <td>@{{ $user.id }}</td>
+                      <td class='profile_pic_min'><img src="/files/profiles/@{{ $user.foto }}" alt=""></td>
+                      <td>@{{ $user.nome }} @{{ $user.sobrenome }}</td>
+                      <td>@{{ $user.email }}</td>
+                      <td>@{{ $user.fone }}</td>
+                      <td ng-if="$user.status==1">
+                          <i class="fa fa-toggle-on sts_on"></i>
+                          Ativo
+                         
+                         
+                      </td>
+                      <td ng-if="$user.status !=1">
+                         <i class="fa fa-toggle-off sts_off"></i>
+                          Bloqueado
+                      </td>
+                    
+                      
+                    </tr>
+                </tbody>
+            </table>
+        <div ng-if='!clientes'> Nâo exite nenhum cliente cadastrado!</div>
+      </div>
 </div>
 
 </div>
