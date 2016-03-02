@@ -103,11 +103,9 @@ class ProdutoController extends Controller
                 }
                 
                 Image::make($image->getRealPath())
-                ->resize(200, null, function ($constraint) {
+                ->resize(400, null, function ($constraint) {
                     $constraint->aspectRatio();
-                })
-                ->crop(200, 200)
-                ->save($path . $filename);
+                })->save($path . $filename);
                 // Image::make($image->getRealPath())->save($path . $filename);
                 $dados['picture'] = $filename;
                 
@@ -120,12 +118,8 @@ class ProdutoController extends Controller
 
         // ADICIONA PRECO
       
-        $preco = new AppPrecos;
-        $preco->valor = $dados['preco'];
-        $preco->status = 1;
-        $preco->save();
-
-        $dados['id_preco'] = $preco->id;
+          $dados['id_preco'] =  $this->AjustaPreco($request->id,$request->valor);
+        $produto = AppProdutos::where('id',$dados['id'])->first();
 
 
         if(AppProdutos::create($dados)){
@@ -200,11 +194,9 @@ class ProdutoController extends Controller
                 }
                 
                 Image::make($image->getRealPath())
-                ->resize(200, null, function ($constraint) {
+                ->resize(400, null, function ($constraint) {
                     $constraint->aspectRatio();
-                })
-                ->crop(200, 200)
-                ->save($path . $filename);
+                })->save($path . $filename);
                 // Image::make($image->getRealPath())->save($path . $filename);
                 $dados['picture'] = $filename;
                 AppProdutos::where('id',$request->id)->update(['picture'=>$filename]);
