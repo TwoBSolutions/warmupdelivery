@@ -166,7 +166,7 @@ Route::group(['middleware' => 'web'], function () {
 
     });
 
-    Route::group(['prefix' => 'api'], function () {
+    Route::group(['prefix' => 'api','middleware'=>'api'], function () {
         Route::get('', function () {
             return 'Bem vindo ao WarmUp Delivery!';
 
