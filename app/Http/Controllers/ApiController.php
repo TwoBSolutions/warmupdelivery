@@ -43,11 +43,11 @@ class ApiController extends Controller
 
   public function logar(Request $request){
 
-  	if (!$user = User::where('email','like',$request->email)) {
+  	if (!$user = User::where('email','like',$request->email)->first()) {
   		
   		return ['status'=>'erro','response'=>'Cliente não cadastrado!'];
   	}
-  	dd($user);
+  
   	if (!Hash::check($request->password, $user->password)) {
   		return ['status'=>'erro','response'=>'A senha não confere!'];
   	}
