@@ -187,8 +187,8 @@ class ProdutoController extends Controller
             
             try {
                 $filename = md5(uniqid(rand(), true)) . '.jpg';
-                $thumbs = public_path('/files/images/thumbs/');
-                $path = public_path('/files/images/');
+                $thumbs = public_path('files/images/thumbs/');
+                $path = public_path('files/images/');
                 if (!file_exists($path)) {
                     mkdir($path, 0755);
                 }
