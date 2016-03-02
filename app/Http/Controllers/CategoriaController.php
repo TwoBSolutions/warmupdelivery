@@ -68,10 +68,12 @@ class CategoriaController extends Controller
                 if (!file_exists($path)) {
                     mkdir($path, 0755);
                 }
+                 Image::make($image->getRealPath())
+                ->resize(600, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->crop(600, 200)->save($path . $filename);
                 
-                Image::make($image->getRealPath())
-                ->crop(600, 200)
-                ->resize(600, 200)->save($path . $filename);
+
                 // Image::make($image->getRealPath())->save($path . $filename);
                 $dados['imagem'] = $filename;
                 
@@ -145,9 +147,10 @@ class CategoriaController extends Controller
                 }
                 
                 Image::make($image->getRealPath())
-                ->crop(600, 200)
-                ->resize(600, 200)->save($path . $filename);
-                // Image::make($image->getRealPath())->save($path . $filename);
+                ->resize(600, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->crop(600, 200)->save($path . $filename);
+                
                 $dados['imagem'] = $filename;
                 AppCategorias::where('id',$request->id)->update(['imagem'=>$filename]);
             }
