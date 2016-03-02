@@ -173,8 +173,8 @@ Route::group(['middleware' => 'web'], function () {
         });
 
         Route::group(['prefix' => 'auth'], function () {
-            Route::get('cadastro', ['as' => 'cadastrar', 'uses' => 'ApiController@cadastrar']);
-            Route::get('logarform', ['as' => 'logar', 'uses' => 'ApiController@logar']);
+            Route::post('cadastro', ['as' => 'cadastrar', 'uses' => 'ApiController@cadastrar']);
+            Route::get('login', ['as' => 'logar', 'uses' => 'ApiController@logar']);
             Route::get('logarface', ['as' => 'logarface', 'uses' => 'ApiController@logarface']);
             Route::get('recuperarsenha', ['as' => 'senha', 'uses' => 'ApiController@senha']);
         });
