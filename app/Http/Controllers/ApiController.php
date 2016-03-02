@@ -20,7 +20,7 @@ class ApiController extends Controller
   }
 
 
-  public function cadastro(Request $request)
+  public function cadastrar(Request $request)
   {
   	$user = new User;
   	if (User::where('email',$request->email)) {
