@@ -47,7 +47,7 @@ class ApiController extends Controller
   		
   		return ['status'=>'erro','response'=>'Cliente não cadastrado!'];
   	}
-
+  	dd($user);
   	if (!Hash::check($request->password, $user->password)) {
   		return ['status'=>'erro','response'=>'A senha não confere!'];
   	}
