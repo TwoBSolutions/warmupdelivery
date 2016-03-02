@@ -199,7 +199,7 @@ class ProdutoController extends Controller
                 })->save($path . $filename);
 
                  Image::make($image->getRealPath())
-                ->resize(130, null, function ($constraint) {
+                ->resize(null, 100, function ($constraint) {
                     $constraint->aspectRatio();
                 })->resizeCanvas(132, 100, 'center', false, 'ffffff')
                 ->save($thumbs . $filename);
