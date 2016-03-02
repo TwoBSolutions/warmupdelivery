@@ -159,7 +159,7 @@ class CategoriaController extends Controller
   
         if(AppCategorias::where('id',$request->id)
     ->update(['titulo'=>$dados['titulo'],'descricao'=>$dados['descricao']])){
-              return redirect(route('categorias'));
+              return redirect('/painel/categorias');
         }else{
           echo "erro";
 
