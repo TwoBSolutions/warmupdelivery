@@ -40,5 +40,20 @@ class ApiController extends Controller
   	}
 
   }
+
+  public function logar(Request $request){
+
+  	if (!$user = User::where('email','like',$request->email)) {
+  		
+  		return ['status'=>'erro','response'=>'Cliente não cadastrado!'];
+  	}
+
+  	if (!Hash::check($request->password, $user->password)) {
+  		return ['status'=>'erro','response'=>'A senha não confere!'];
+  	}
+
+  	return ['status'=>'sucesso','response'=>$user];
+
+  }
  
 }
