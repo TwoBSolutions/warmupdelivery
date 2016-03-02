@@ -177,8 +177,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
 
     Route::group(['prefix' => 'auth'], function () {
         Route::post('cadastro', ['as' => 'cadastrar', 'uses' => 'ApiController@cadastrar']);
-        Route::get('login', ['as' => 'logar', 'uses' => 'ApiController@logar']);
-        Route::get('logarface', ['as' => 'logarface', 'uses' => 'ApiController@logarface']);
+        Route::post('login', ['as' => 'logar', 'uses' => 'ApiController@logar']);
+        Route::post('logarface', ['as' => 'logarface', 'uses' => 'ApiController@logarface']);
         Route::get('recuperarsenha', ['as' => 'senha', 'uses' => 'ApiController@senha']);
     });
 
