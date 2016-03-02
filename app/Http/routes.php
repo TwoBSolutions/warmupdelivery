@@ -20,6 +20,7 @@
  */
 
 Route::group(['middleware' => 'web'], function () {
+
     Route::group(['prefix' => ''], function () {
         Route::get('', function () {
             return view('coming.index');
@@ -31,6 +32,7 @@ Route::group(['middleware' => 'web'], function () {
         });
 
     });
+
     Route::post('login', ['as' => 'logarPainel', 'uses' => 'UsuariosController@logarPainel']);
     Route::get('/login', ['as' => 'loginPainel', 'uses' => 'UsuariosController@login']);
 
@@ -76,7 +78,7 @@ Route::group(['middleware' => 'web'], function () {
         });
 
         Route::group(['prefix' => 'promocao
-        '], function () {
+        ', ], function () {
             Route::get('', ['as' => 'promocoes', 'uses' => 'PromocaoController@listar']);
             Route::get('nova', ['as' => 'promocoesCreate', 'uses' => 'PromocaoController@create']);
             Route::post('nova', ['as' => 'promocoesNovo', 'uses' => 'PromocaoController@PostNovo']);
@@ -92,14 +94,14 @@ Route::group(['middleware' => 'web'], function () {
             Route::post('update', ['as' => 'mensagensUpdate', 'uses' => 'MensagensController@update']);
         });
 
-          Route::group(['prefix' => 'alertas'], function () {
+        Route::group(['prefix' => 'alertas'], function () {
             Route::get('', ['as' => 'alertas', 'uses' => 'MensagensController@alertas']);
             Route::post('', ['as' => 'alerta.novo', 'uses' => 'MensagensController@alerta.novo']);
             Route::get('editar/{id}', ['as' => 'alerta.editar', 'uses' => 'MensagensController@alerta.editar']);
             Route::post('editar/{id}', ['as' => 'alerta.salvar', 'uses' => 'MensagensController@alerta.salvar']);
             Route::post('deletar/{id}', ['as' => 'alerta.deletar', 'uses' => 'MensagensController@alerta.deletar']);
             Route::post('status/{id}', ['as' => 'alerta.status', 'uses' => 'MensagensController@alerta.status']);
-           
+
         });
 
         Route::group(['prefix' => 'configuracoes'], function () {
@@ -158,7 +160,6 @@ Route::group(['middleware' => 'web'], function () {
 
             Route::group(['prefix' => 'produtos'], function () {
                 Route::get('', ['as' => 'json.produtos.all', 'uses' => 'ProdutoController@jsonAll']);
-               
 
             });
 
@@ -166,58 +167,55 @@ Route::group(['middleware' => 'web'], function () {
 
     });
 
-    Route::group(['prefix' => 'api','middleware'=>'api'], function () {
+});
+
+Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
+    Route::get('', function () {
+        return 'Bem vindo ao WarmUp Delivery!';
+
+    });
+
+    Route::group(['prefix' => 'auth'], function () {
+        Route::post('cadastro', ['as' => 'cadastrar', 'uses' => 'ApiController@cadastrar']);
+        Route::get('login', ['as' => 'logar', 'uses' => 'ApiController@logar']);
+        Route::get('logarface', ['as' => 'logarface', 'uses' => 'ApiController@logarface']);
+        Route::get('recuperarsenha', ['as' => 'senha', 'uses' => 'ApiController@senha']);
+    });
+
+    // JSONS
+
+    Route::group(['prefix' => 'json'], function () {
         Route::get('', function () {
-            return 'Bem vindo ao WarmUp Delivery!';
-
-        });
-
-        Route::group(['prefix' => 'auth'], function () {
-            Route::post('cadastro', ['as' => 'cadastrar', 'uses' => 'ApiController@cadastrar']);
-            Route::get('login', ['as' => 'logar', 'uses' => 'ApiController@logar']);
-            Route::get('logarface', ['as' => 'logarface', 'uses' => 'ApiController@logarface']);
-            Route::get('recuperarsenha', ['as' => 'senha', 'uses' => 'ApiController@senha']);
-        });
-
-
-        // JSONS
-
-        Route::group(['prefix' => 'json'], function () {
-             Route::get('', function () {
             return 'Retorna Jsons';
 
-             });
-            Route::group(['prefix' => 'produtos'], function () {
-                Route::get('', ['as' => 'apiprodutos', 'uses' => 'ApiController@produtos']);
-                Route::get('home', ['as' => 'api.produtos.home', 'uses' => 'ProdutoController@produtos_home']);
-                Route::get('produto/{id}', ['as' => 'json.produto', 'uses' => 'ProdutoController@jsonGet']);
-            });
-            Route::group(['prefix' => 'categorias'], function () {
-                Route::get('', ['as' => 'categoria.all.json', 'uses' => 'CategoriaController@jsonActive']);
-                 Route::get('{id}', ['as' => 'categoria.all.json.prod', 'uses' => 'CategoriaController@jsonWhitProd']);
-            });
         });
+        Route::group(['prefix' => 'produtos'], function () {
+            Route::get('', ['as' => 'apiprodutos', 'uses' => 'ApiController@produtos']);
+            Route::get('home', ['as' => 'api.produtos.home', 'uses' => 'ProdutoController@produtos_home']);
+            Route::get('produto/{id}', ['as' => 'json.produto', 'uses' => 'ProdutoController@jsonGet']);
+        });
+        Route::group(['prefix' => 'categorias'], function () {
+            Route::get('', ['as' => 'categoria.all.json', 'uses' => 'CategoriaController@jsonActive']);
+            Route::get('{id}', ['as' => 'categoria.all.json.prod', 'uses' => 'CategoriaController@jsonWhitProd']);
+        });
+    });
 
+    // JSONS
 
-        // JSONS
+    Route::group(['prefix' => 'autenticado'], function () {
+        Route::group(['prefix' => 'user/{id}'], function () {
+            Route::get('', ['as' => 'api.user.info', 'uses' => 'ClientesController@getUser']);
+            Route::get('pedidos', ['as' => 'api.user.info', 'uses' => 'ApiController@user_pedidos']);
+            Route::get('enderecos', ['as' => 'api.user.info', 'uses' => 'ApiController@user_enderecos']);
+        });
+        Route::group(['prefix' => 'pedido'], function () {
+            Route::get('', ['as' => 'api.pedido', 'uses' => 'ApiController@pedido.make']);
 
-
-        Route::group(['prefix' => 'autenticado'], function () {
-            Route::group(['prefix' => 'user/{id}'], function () {
-                Route::get('', ['as' => 'api.user.info', 'uses' => 'ClientesController@getUser']);
-                Route::get('pedidos', ['as' => 'api.user.info', 'uses' => 'ApiController@user_pedidos']);
-                Route::get('enderecos', ['as' => 'api.user.info', 'uses' => 'ApiController@user_enderecos']);
-            });
-            Route::group(['prefix' => 'pedido'], function () {
-                Route::get('', ['as' => 'api.pedido', 'uses' => 'ApiController@pedido.make']);
-               
-            });
-             Route::group(['prefix' => 'produtos'], function () {
-                    Route::get('', ['as' => 'api.produtos', 'uses' => 'ProdutoController@jsonAll']);
-                    Route::get('{id}', ['as' => 'api.produto', 'uses' => 'ProdutoController@jsonGet']);
-                    Route::get('categorias', ['as' => 'api.produto', 'uses' => 'CategoriaController@jsonAll']);
-               
-            });
+        });
+        Route::group(['prefix' => 'produtos'], function () {
+            Route::get('', ['as' => 'api.produtos', 'uses' => 'ProdutoController@jsonAll']);
+            Route::get('{id}', ['as' => 'api.produto', 'uses' => 'ProdutoController@jsonGet']);
+            Route::get('categorias', ['as' => 'api.produto', 'uses' => 'CategoriaController@jsonAll']);
 
         });
 
