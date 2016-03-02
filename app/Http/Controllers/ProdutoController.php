@@ -227,7 +227,7 @@ class ProdutoController extends Controller
             'id_preco'=>$dados['id_preco']])) {
             return redirect('/painel/produtos');
        }else{
-         return redirect()->back()->whiteErrors(['error'=>'erro ao atualizar']);
+         return redirect()->back();
        }
             
 
