@@ -22,6 +22,8 @@ class ApiController extends Controller
 
   public function cadastrar(Request $request)
   {
+
+  	dd($request);
   	$user = new User;
   	if (User::where('email','like',$request->email)->first()) {
   		return ['response'=>'este email ja esta em uso','status'=>'existe'];
