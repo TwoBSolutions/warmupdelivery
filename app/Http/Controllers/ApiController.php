@@ -22,7 +22,7 @@ class ApiController extends Controller
 
   public function cadastro(Request $request)
   {
-  	$user = new User:
+  	$user = new User;
   	if (User::where('email',$request->email)) {
   		return ['response'=>'este email ja esta em uso','status'=>'existe'];
   	}
