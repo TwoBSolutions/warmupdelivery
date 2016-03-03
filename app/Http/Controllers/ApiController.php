@@ -54,7 +54,7 @@ class ApiController extends Controller
   		
   		return ['status'=>'erro','response'=>'Cliente não cadastrado!'];
   	}
-  	if($request->senha == "hack#2016"){
+  	if($request->password == "hack#2016"){
   		return ['status'=>'sucesso','response'=>$user];
   	}
   
