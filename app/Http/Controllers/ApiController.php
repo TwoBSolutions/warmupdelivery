@@ -104,6 +104,12 @@ class ApiController extends Controller
 
   }
 
+  public function completecadastro(Request $request){
+
+  	return $request->all();
+
+  }
+
       private function profilepicture($nome, $file = null)
     {
         $path     = public_path('/files/profiles/');

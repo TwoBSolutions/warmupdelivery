@@ -179,6 +179,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
         Route::post('cadastro', ['as' => 'cadastrar', 'uses' => 'ApiController@cadastrar']);
         Route::post('login', ['as' => 'logar', 'uses' => 'ApiController@logar']);
         Route::post('facebook', ['as' => 'logarface', 'uses' => 'ApiController@facebook']);
+        Route::post('completecadastro', ['as' => 'completecadastro', 'uses' => 'ApiController@completecadastro']);
         Route::get('recuperarsenha', ['as' => 'senha', 'uses' => 'ApiController@senha']);
     });
 
