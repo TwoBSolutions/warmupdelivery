@@ -113,12 +113,12 @@ class ApiController extends Controller
   		return ['status'=>'erro','response'=>'Erro ao atualizar os dados'];
   	}
 
-  	if (!$request->facebookfoto && $request->foto) {
-  		$user->foto = $this->profilepicture($nome, $request->file);
+  	if (!$request->facebookfoto && $request->file) {
+  		$user->foto = $this->profilepicture($request->$nome, $request->file);
   	}elseif($request->foto){
   		$user->foto = $request->foto;
   	}else{
-  		$user->foto = $this->profilepicture($nome, null);
+  		$user->foto = $this->profilepicture($request->$nome, null);
   	}
   	if($endereco = AppEnderecos::where('id_pessoa',$user->id)->where('principal',1)->first()){
   		$endereco->rua = $request->endereco['rua'];
