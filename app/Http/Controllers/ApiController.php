@@ -134,6 +134,7 @@ class ApiController extends Controller
   		$endereco->bairro = $request->endereco['bairro'];
   		$endereco->complemento = $request->endereco['complemento'];
   		$endereco->responsavel = $request->nome;
+  		$endereco->principal = 1;
   		$endereco->save();
   	}
   	$user->nome = $request->nome;
@@ -148,6 +149,7 @@ class ApiController extends Controller
   		$user->fone2 = $request->fone2;
   	}
   	$user->fone = $request->fone;
+  	$user->cad_complet = 1;
   	if ($user->save()) {
   		return ['status'=>'sucesso','response'=>$user];
   	}else{
