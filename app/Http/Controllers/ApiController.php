@@ -62,7 +62,39 @@ class ApiController extends Controller
 
   public function facebook(Request $request){
 
-  	dd($request->all());
+  	if (!$user = User::where('email','like',$request->email)->first()) {
+  		
+  		return $this->cadastrarFace($request);
+  	}
+
+  	$user->facebookid = $request->facebookid;
+  	$user->nome = $request->nome;
+  	$user->tipo = 'CLIENTE';
+  	$user->create_from = "APP";
+  	$user->cad_complet = "0";
+  	$user->accesstoken = $request->accesstoken;
+  	$user->save();
+
+  	return ['status'=>'sucesso','response'=>'login','user'=>$user];
+
+  	
+
+  }
+
+  public function cadastrarFace($request){
+  	$user = new User;
+  	$user->facebookid = $request->facebookid;
+  	$user->nome = $request->nome;
+  	$user->email = $request->email;
+  	$user->foto = $request->foto;
+  	$user->tipo = 'CLIENTE';
+  	$user->create_from = "APP";
+  	$user->cad_complet = "0";
+  	$user->accesstoken = $request->accesstoken;
+  	$user->save();
+  	return ['status'=>'sucesso','response'=>'cadastro','user'=>$user];
+
+
 
   }
  
