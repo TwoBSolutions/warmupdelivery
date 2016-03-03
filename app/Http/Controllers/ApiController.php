@@ -23,7 +23,7 @@ class ApiController extends Controller
   public function cadastrar(Request $request)
   {
 
-  	dd($request);
+
   	$user = new User;
   	if (User::where('email','like',$request->email)->first()) {
   		return ['response'=>'este email ja esta em uso','status'=>'existe'];
@@ -45,6 +45,8 @@ class ApiController extends Controller
 
   public function logar(Request $request){
 
+
+
   	if (!$user = User::where('email','like',$request->email)->first()) {
   		
   		return ['status'=>'erro','response'=>'Cliente não cadastrado!'];
@@ -55,6 +57,12 @@ class ApiController extends Controller
   	}
 
   	return ['status'=>'sucesso','response'=>$user];
+
+  }
+
+  public function facebook(Request $request){
+
+  	dd($request->all());
 
   }
  
