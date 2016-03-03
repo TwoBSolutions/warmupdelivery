@@ -42,7 +42,9 @@ class User extends Model implements AuthenticatableContract,
 'foto',
 'fone',
 'fone2',
-'status'
+'status',
+'accesstoken',
+'cad_complet'
 ];
 
     /**
