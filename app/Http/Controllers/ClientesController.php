@@ -108,7 +108,7 @@ class ClientesController extends Controller
                     $clienteData['fone'] = $request->fone;
                     $clienteData['fone2'] = $request->fone2;
                     if($cliente->update($clienteData)){
-                         $endereco = AppEnderecos::where('id_pessoa',$cliente->id)->where('principal',1);
+                         $endereco = AppEnderecos::where('id_pessoa',$cliente->id)->where('principal',1)->first();
                             $enderecoData['rua'] = $request->rua;
                             $enderecoData['numero'] = $request->numero;
                             $enderecoData['bairro'] = $request->bairro;

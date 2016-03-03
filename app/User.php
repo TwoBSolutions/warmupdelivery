@@ -44,7 +44,8 @@ class User extends Model implements AuthenticatableContract,
 'fone2',
 'status',
 'accesstoken',
-'cad_complet'
+'cad_complet',
+'facebookfoto'
 ];
 
     /**

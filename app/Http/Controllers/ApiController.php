@@ -13,6 +13,7 @@ use App\AppCategorias;
 use Hash;
 use Avatar;
 use Image;
+use App\AppEnderecos;
 
 class ApiController extends Controller
 {
@@ -106,7 +107,56 @@ class ApiController extends Controller
 
   public function completecadastro(Request $request){
 
-  	return $request->all();
+  	
+  	if (!$user = User::find($request->id)) {
+  		
+  		return ['status'=>'erro','response'=>'Erro ao atualizar os dados'];
+  	}
+
+  	if (!$request->facebookfoto && $request->foto) {
+  		$user->foto = $this->profilepicture($nome, $request->file);
+  	}elseif($request->foto){
+  		$user->foto = $request->foto;
+  	}else{
+  		$user->foto = $this->profilepicture($nome, null);
+  	}
+  	if($endereco = AppEnderecos::where('id_pessoa',$user->id)->where('principal',1)->first()){
+  		$endereco->rua = $request->endereco['rua'];
+  		$endereco->numero = $request->endereco['numero'];
+  		$endereco->bairro = $request->endereco['bairro'];
+  		$endereco->complemento = $request->endereco['complemento'];
+  		$endereco->responsavel = $request->nome;
+  		$endereco->save();
+  	}else{
+  		$endereco = new AppEnderecos;
+  		$endereco->rua = $request->endereco['rua'];
+  		$endereco->numero = $request->endereco['numero'];
+  		$endereco->bairro = $request->endereco['bairro'];
+  		$endereco->complemento = $request->endereco['complemento'];
+  		$endereco->responsavel = $request->nome;
+  		$endereco->save();
+  	}
+  	$user->nome = $request->nome;
+  	$user->email = $request->email;
+  	if ($request->data_nasc) {
+  		$user->data_nasc = $request->data_nasc;
+  	}
+  	if ($request->cpf) {
+  		$user->cpf = $request->cpf;
+  	}
+  	if ($request->fone2) {
+  		$user->fone2 = $request->fone2;
+  	}
+  	$user->fone = $request->fone;
+  	if ($user->save()) {
+  		return ['status'=>'sucesso','response'=>$user];
+  	}else{
+  		return ['status'=>'erro','response'=>'Erro ao Atualizar dados'];
+  	}
+
+
+
+
 
   }
 
