@@ -79,6 +79,7 @@ class ApiController extends Controller
   	$user->tipo = 'CLIENTE';
   	$user->create_from = "APP";
   	$user->cad_complet = "0";
+
   	$user->accesstoken = $request->accesstoken;
   	$user->save();
 
@@ -94,6 +95,7 @@ class ApiController extends Controller
   	$user->nome = $request->nome;
   	$user->email = $request->email;
   	$user->foto = $request->foto;
+  	$user->facebookfoto = 1;
   	$user->tipo = 'CLIENTE';
   	$user->create_from = "APP";
   	$user->cad_complet = "0";
