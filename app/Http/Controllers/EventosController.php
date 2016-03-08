@@ -116,6 +116,7 @@ class EventosController extends Controller
     {
         $path     = public_path('/files/imagens/');
         $path_thumbs     = public_path('/files/imagens/thumbs/');
+        $path_cover     = public_path('/files/imagens/covers/');
         $filename = md5(uniqid(rand(), true)) . '.jpg';
 
         if ($imagem) {
@@ -128,6 +129,9 @@ class EventosController extends Controller
                 if (!file_exists($path_thumbs)) {
                     mkdir($path_thumbs, 0755);
                 }
+                 if (!file_exists($path_cover)) {
+                    mkdir($path_cover, 0755);
+                }
 
                 Image::make($imagem->getRealPath())
                 ->resize(900, null, function ($constraint) {
@@ -138,6 +142,12 @@ class EventosController extends Controller
                 ->resize(null, 400, function ($constraint) {
                     $constraint->aspectRatio();
                 })->crop(640, 400)
+                ->save($path_cover . $filename);
+
+                 Image::make($imagem->getRealPath())
+                ->resize(null, 80, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->crop(80, 80)
                 ->save($path_thumbs . $filename);
 
               
