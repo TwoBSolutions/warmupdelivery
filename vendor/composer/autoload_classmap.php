@@ -12,6 +12,7 @@ return array(
     'CreateCategorias' => $baseDir . '/database/migrations/2016_01_12_193039_CreateCategorias.php',
     'CreateEndereco' => $baseDir . '/database/migrations/2016_01_12_192908_CreateEndereco.php',
     'CreateEventos' => $baseDir . '/database/migrations/2016_01_12_193109_CreateEventos.php',
+    'CreateImagens' => $baseDir . '/database/migrations/2016_03_07_182243_CreateImagens.php',
     'CreateMarcas' => $baseDir . '/database/migrations/2016_01_12_193031_CreateMarcas.php',
     'CreateOrder' => $baseDir . '/database/migrations/2016_01_12_192916_CreateOrder.php',
     'CreateOrderCobranca' => $baseDir . '/database/migrations/2016_01_12_192937_CreateOrderCobranca.php',

@@ -96,19 +96,28 @@ class ProdutoController extends Controller
             
             try {
                 $filename = md5(uniqid(rand(), true)) . '.jpg';
-                
-                $path = public_path('/files/images/');
+                $thumbs = public_path('files/images/thumbs/');
+                $path = public_path('files/images/');
                 if (!file_exists($path)) {
                     mkdir($path, 0755);
                 }
                 
                 Image::make($image->getRealPath())
-                ->resize(400, null, function ($constraint) {
+                ->resize(800, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })->save($path . $filename);
+
+                 Image::make($image->getRealPath())
+                ->resize(null, 100, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->resizeCanvas(132, 100, 'center', false, 'ffffff')
+                ->save($thumbs . $filename);
+
+
+
                 // Image::make($image->getRealPath())->save($path . $filename);
                 $dados['picture'] = $filename;
-                
+                AppProdutos::where('id',$request->id)->update(['picture'=>$filename]);
             }
             catch(Exception $e) {
                 return $e;

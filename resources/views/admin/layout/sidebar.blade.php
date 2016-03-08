@@ -11,7 +11,7 @@
         <div class="nano-content">
             <nav id="menu" class="nav-main" role="navigation">
                 <ul class="nav nav-main">
-                    <li class="nav-active">
+                    <li {!! (Request::route()->getName() =='paineldashboard' ? 'class="nav-active"' : '') !!} >
                         <a href="/painel">
                         <i class="fa fa-home" aria-hidden="true"></i>
                         <span>Dashboard</span>
@@ -24,11 +24,11 @@
                         <span>Mapa</span>
                         </a>
                     </li>
-                     <li class="nav-parent nav-expanded">
-                    <a class='menu-pedidos'>
+                    <li {!! (Request::route()->getName() =="painelpedidosAll" || Request::route()->getName() =="painelcriarPedido" || Request::route()->getName() =="painelpedidosNovos" || Request::route()->getName() =="painelpedidosFinalizados" || Request::route()->getName() =="painelpedidosCancelados" || Request::route()->getName() =="painelpedidosAndamento" ? "class='nav-parent nav-expanded nav-active'" : "class='nav-parent'") !!} >
+                    <a class=''>
                     <i class="fa fa-desktop" aria-hidden="true"></i>
 
-                    <span>Pedidos </span>
+                    <span>Pedidos  </span>
                     </a>
                     <ul class="nav nav-children menu-pedidos-in">
                      <li class='novaVenda'>
@@ -94,6 +94,27 @@
                         
                         </a>
                     </li>
+                    <li {!! (Request::route()->getName() =="paineleventos.list" || Request::route()->getName() =="paineleventos.novo" || Request::route()->getName() =="paineleventos.editar"  ? "class='nav-parent nav-expanded nav-active'" : "class='nav-parent'") !!}>
+                    <a>
+
+                    <i class="fa fa-glass" aria-hidden="true"></i>
+                    <span>Eventos</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                                <a href="/painel/eventos">
+                                <i class="fa fa-list-ol"></i>
+                                Listar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/painel/eventos/novo">
+                                <i class="fa fa-plus-circle"></i>
+                                Cadastrar
+                                </a>
+                            </li>
+                    </ul>
+                </li>
      
                     <li class="nav-parent">
                         <a>

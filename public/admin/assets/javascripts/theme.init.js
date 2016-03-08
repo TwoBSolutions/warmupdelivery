@@ -105,7 +105,7 @@
 (function( $ ) {
 
 	'use strict';
-
+$.fn.datepicker.defaults.format = "dd/mm/yyyy";
 	if ( $.isFunction($.fn[ 'datepicker' ]) ) {
 
 		$(function() {
