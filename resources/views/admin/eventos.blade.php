@@ -35,11 +35,11 @@
 					@endif
 					</td>
 					<td class='img_prev_cat'>
-					@if ($evento->imagens)
-						@foreach ($evento->imagens as $imagem)
-						<img src="/files/imagens/thumbs/{{$imagem->url}}" alt="">
+					@if ($evento->imagem)
+						
+						<img src="/files/imagens/thumbs/{{$evento->imagem}}" alt="">
 							
-						@endforeach
+					
 					@endif
 					</td>
 					<td>

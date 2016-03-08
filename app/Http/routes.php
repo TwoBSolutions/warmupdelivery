@@ -76,6 +76,17 @@ Route::group(['middleware' => 'web'], function () {
 
          });
 
+        Route::group(['prefix' => 'promocoes'], function () {
+            Route::get('', ['as' => '.promocoes', 'uses' => 'PromocaoController@index']);
+            Route::get('nova', ['as' => '.promocao.novo', 'uses' => 'PromocaoController@novo']);
+            Route::post('nova', ['as' => '.promocao.criar', 'uses' => 'PromocaoController@criar']);
+            Route::get('editar/{id}', ['as' => '.promocao.editar', 'uses' => 'PromocaoController@editar']);
+            Route::put('editar/{id}', ['as' => '.promocao.update', 'uses' => 'PromocaoController@update']);
+            Route::get('deletar/{id}', ['as' => '.promocao.delete', 'uses' => 'PromocaoController@deletar']);
+            Route::get('status/{id}', ['as' => '.promocao.status', 'uses' => 'PromocaoController@status']);
+
+         });
+
         Route::group(['prefix' => 'produtos'], function () {
             Route::get('', ['as' => 'produtos.all.painel', 'uses' => 'ProdutoController@index']);
             Route::get('novo', ['as' => 'novoProduto', 'uses' => 'ProdutoController@create']);

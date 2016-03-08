@@ -62,8 +62,8 @@ class ProdutoController extends Controller
     public function create()
     {
 
-        $marcas = AppMarcas::select('id','titulo')->get();
-        $categorias = AppCategorias::select('id','titulo')->get();
+        $marcas = AppMarcas::get()->lists('titulo','id');
+        $categorias = AppCategorias::get()->lists('titulo','id');
         return view('admin.novoProduto',compact('marcas','categorias'));
     }
 

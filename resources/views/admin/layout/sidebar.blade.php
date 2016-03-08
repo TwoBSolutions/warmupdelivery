@@ -116,7 +116,7 @@
                     </ul>
                 </li>
      
-                    <li class="nav-parent">
+                    <li class="nav-parent {!! (Request::route()->getName() =="painelcategorias" || Request::route()->getName() =="painelnovaCategoria" || Request::route()->getName() =="painelgetcategoria"  ? "nav-expanded nav-active'" : "") !!}">
                         <a>
                         <i class="fa fa-tags" aria-hidden="true"></i>
                         <span>Categorias</span>
@@ -141,7 +141,7 @@
                     </li>
                 </li>
 		
-                <li class="nav-parent">
+                <li class="nav-parent {!! (Request::route()->getName() =="painelmarcas" || Request::route()->getName() =="painelnovaMarca" || Request::route()->getName() =="painelgetmarca"  ? "nav-expanded nav-active'" : "") !!} ">
                     <a>
 
                     <i class="fa fa-barcode" aria-hidden="true"></i>
@@ -163,7 +163,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-parent">
+                <li class="nav-parent {!! (Request::route()->getName() =="painelprodutos" || Request::route()->getName() =="painelnovoProduto" || Request::route()->getName() =="painelgetproduto"  ? "nav-expanded nav-active'" : "") !!}">
                     <a>
                     <i class="fa fa-beer" aria-hidden="true"></i>
                     <span>Produtos</span>
@@ -183,7 +183,7 @@
                             </li>
                     </ul>
                 </li>
-                 <li class="nav-parent">
+                 <li class="nav-parent {!! (Request::route()->getName() =="painel.promocoes" || Request::route()->getName() =="painel.promocao.novo" || Request::route()->getName() =="painel.promocao.editar"  ? "nav-expanded nav-active'" : "") !!}">
                     <a>
                     <i class="fa fa-star" aria-hidden="true"></i>
                     
@@ -191,13 +191,13 @@
                     </a>
                     <ul class="nav nav-children">
                         <li>
-                                <a href="/painel/categorias">
+                                <a href="/painel/promocoes">
                                 <i class="fa fa-list-ol"></i>
                                 Listar
                                 </a>
                             </li>
                             <li>
-                                <a href="/painel/categorias/nova">
+                                <a href="/painel/promocoes/nova">
                                 <i class="fa fa-plus-circle"></i>
                                 Cadastrar
                                 </a>
