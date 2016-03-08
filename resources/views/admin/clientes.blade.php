@@ -25,7 +25,12 @@
 	@foreach ($clientes as $user)
 	<tr>
 			<td>{{ $user->id }}</td>
+			@if ($user->facebookfoto)
+			<td class='profile_pic_min'><img src="{{ $user->foto }}" alt=""></td>
+			@else
 			<td class='profile_pic_min'><img src="{{ '/files/profiles/'.$user->foto }}" alt=""></td>
+			@endif
+			
 			<td>{{ $user->nome }} {{ $user->sobrenome }}</td>
 			<td>{{ $user->email }}</td>
 			<td>{{ $user->fone }}</td>
