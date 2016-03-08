@@ -159,7 +159,7 @@
 	<div class="col-md-12 ">
 	<div class="imagens_prev imagem-capa">
 	@if (isset($evento['imagem']))
-				<img src="/files/imagens/thumbs/{{$evento['imagem']}}" alt="">
+				<img src="/files/imagens/covers/{{$evento['imagem']}}" alt="">
 			@endif
 		<p class="legend">Imagem de capa</p>
 			
