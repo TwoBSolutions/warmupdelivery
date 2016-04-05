@@ -86,6 +86,17 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('status/{id}', ['as' => '.promocao.status', 'uses' => 'PromocaoController@status']);
 
          });
+          Route::group(['prefix' => 'vouchers'], function () {
+            Route::get('', ['as' => '.vouchers', 'uses' => 'VoucherController@index']);
+            Route::get('nova', ['as' => '.promocao.novo', 'uses' => 'VoucherController@novo']);
+            Route::post('nova', ['as' => '.promocao.criar', 'uses' => 'VoucherController@criar']);
+            Route::get('editar/{id}', ['as' => '.promocao.editar', 'uses' => 'VoucherController@editar']);
+            Route::put('editar/{id}', ['as' => '.promocao.update', 'uses' => 'VoucherController@update']);
+            Route::get('deletar/{id}', ['as' => '.promocao.delete', 'uses' => 'VoucherController@deletar']);
+            Route::get('status/{id}', ['as' => '.promocao.status', 'uses' => 'VoucherController@status']);
+
+         });
+
 
         Route::group(['prefix' => 'produtos'], function () {
             Route::get('', ['as' => 'produtos.all.painel', 'uses' => 'ProdutoController@index']);
@@ -98,9 +109,8 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('update/{id}', ['as' => 'getProduto', 'uses' => 'ProdutoController@getProduto']);
         });
 
-        Route::group(['prefix' => 'promocao
-        ', ], function () {
-            Route::get('', ['as' => 'promocoes', 'uses' => 'PromocaoController@listar']);
+        Route::group(['prefix' => 'promocao', ], function () {
+            Route::get('', ['as' => 'promocao', 'uses' => 'PromocaoController@listar']);
             Route::get('nova', ['as' => 'promocoesCreate', 'uses' => 'PromocaoController@create']);
             Route::post('nova', ['as' => 'promocoesNovo', 'uses' => 'PromocaoController@PostNovo']);
             Route::delete('delete/{id}', ['as' => 'promocoesDestroy', 'uses' => 'PromocaoController@destroy']);
@@ -232,6 +242,10 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
         });
         Route::group(['prefix' => 'pedido'], function () {
             Route::get('', ['as' => 'api.pedido', 'uses' => 'ApiController@pedido.make']);
+
+        });
+        Route::group(['prefix' => 'configuracoes'], function () {
+            Route::get('', ['as' => 'api.configuracoes', 'uses' => 'ApiController@configuracoes']);
 
         });
             Route::group(['prefix' => 'eventos'], function () {

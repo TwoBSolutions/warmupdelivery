@@ -23,6 +23,8 @@ class Configuracoes extends Migration
             $table->string('cidade');
             $table->string('telefone');
             $table->string('celular');
+            $table->float('valor_min');
+            $table->float('taxa');
             $table->string('email');
             $table->integer('status');
 

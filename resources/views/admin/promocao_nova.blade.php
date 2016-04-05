@@ -1,5 +1,5 @@
 @extends('admin.layout.painel')
-@section('titlepage','Adicionar Produto')
+@section('titlepage','Nova Promoção')
 @section('content')
 
 {!! Form::open(array('action' => 'PromocaoController@criar','method'=>'post','enctype'=>'multipart/form-data','files'=>true)) !!}

@@ -37,10 +37,13 @@
         <meta name="theme-color" content="#ffffff">
 
 		<!-- Vendor CSS -->
+
 		<link rel="stylesheet" href="/admin/assets/vendor/bootstrap/css/bootstrap.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/admin/assets/vendor/magnific-popup/magnific-popup.css" />
 		<link rel="stylesheet" href="/admin/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+				<link rel="stylesheet" href="/admin/assets/vendor/summernote/summernote.css" />
+		<link rel="stylesheet" href="/admin/assets/vendor/summernote/summernote-bs3.css" />
 		<link rel="stylesheet" type="text/css" href='/admin/assets/vendor/angular-loading-bar-master/build/loading-bar.min.css' type='text/css' media='all'>
 
 		<link rel="stylesheet" href="/admin/assets/vendor/select2/select2.css" />

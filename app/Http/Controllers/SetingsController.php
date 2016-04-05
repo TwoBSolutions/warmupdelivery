@@ -33,6 +33,10 @@ class SetingsController extends Controller
 			$config->celular = $request->celular;
 			$config->hora_abre = $request->hora_abre;
 			$config->hora_fecha = $request->hora_fecha;
+            $config->valor_min = $request->valor_min;
+            $config->taxa = $request->taxa;
+            $config->horario_func = $request->horario_func;
+            $config->aberto = $request->aberto;
 			$config->save();
     	}else{
     		AppConfig::create($request);

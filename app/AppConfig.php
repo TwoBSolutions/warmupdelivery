@@ -20,6 +20,9 @@ class AppConfig extends Model
 'telefone',
 'celular',
 'email',
-'status'
+'valor_min',
+'taxa',
+'aberto',
+'horario_func'
     	];
 }

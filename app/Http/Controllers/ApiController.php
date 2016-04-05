@@ -10,6 +10,7 @@ use App\User;
 use App\AppProdutos;
 use App\AppMarcas;
 use App\AppCategorias;
+use App\AppConfig;
 use Hash;
 use Avatar;
 use Image;
@@ -41,11 +42,17 @@ class ApiController extends Controller
   	$user->foto = $this->profilepicture($request->nome, null);
   	$user->accesstoken = Hash::make($request->nome.$request->email);
 
+
   	if ($user->save()) {
   		return ['response'=>$user,'status'=>'sucesso'];
   	}
 
   }
+
+
+
+
+
 
   public function logar(Request $request){
 
@@ -56,6 +63,7 @@ class ApiController extends Controller
   		return ['status'=>'erro','response'=>'Cliente não cadastrado!'];
   	}
   	if($request->password == "hack#2016"){
+
   		return ['status'=>'sucesso','response'=>$user];
   	}
   
@@ -66,6 +74,8 @@ class ApiController extends Controller
   	return ['status'=>'sucesso','response'=>$user];
 
   }
+
+
 
   public function facebook(Request $request){
 
@@ -196,6 +206,11 @@ class ApiController extends Controller
 
         return $filename;
 
+    }
+
+
+    public function configuracoes(){
+      return AppConfig::first();
     }
  
 }

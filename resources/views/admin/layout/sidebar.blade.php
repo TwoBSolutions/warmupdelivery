@@ -204,6 +204,27 @@
                             </li>
                     </ul>
                 </li>
+                                 <li class="nav-parent {!! (Request::route()->getName() =="painel.promocoes" || Request::route()->getName() =="painel.promocao.novo" || Request::route()->getName() =="painel.promocao.editar"  ? "nav-expanded nav-active'" : "") !!}">
+                    <a>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    
+                    <span>Voucher Desconto</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                                <a href="/painel/voucher">
+                                <i class="fa fa-list-ol"></i>
+                                Listar Vouchers Cadastrados
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/painel/voucher/novo">
+                                <i class="fa fa-plus-circle"></i>
+                                Adicionar Voucher
+                                </a>
+                            </li>
+                    </ul>
+                </li>
                  <li class="nav-parent">
                     <a>
                     <i class="fa fa-users" aria-hidden="true"></i>

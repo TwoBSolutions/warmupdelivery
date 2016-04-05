@@ -105,18 +105,39 @@
                             </i>
                             Abre
                         </label>
-                        {{Form::text('hora_abre',null,['class'=>'form-control timepicker','placeholder'=>'Abre'])}}
+                        {{Form::text('horario_func',null,['class'=>'form-control timepicker','placeholder'=>'Abre'])}}
+
+                        
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="checkbox-inline">
+                        {{Form::checkbox('aberto',1)}}
+                        <i class="fa fa-info-circle"  data-toggle="popover" title="Aberto/Fechado" data-content="Opção para aberto e fechado no app"></i>
+                          ABERTO/FECHADO
+                        </label>
+                       
+                    </div>
+                </div>
+                <div class="row">
+                   <div class="col-sm-6">
+                        <label for="">
+                            <i class="fa fa-money"></i>
+                            </i>
+                            Valor de mínimo de compra 
+                        </label>
+                        {{Form::text('valor_min',null,['class'=>'form-control money','placeholder'=>'Valor Mínimo'])}}
 
                         
                     </div>
                     <div class="col-sm-6">
                         <label for="">
-                            <i class="fa fa-clock-o">
+                            <i class="fa fa-money"></i>
                             </i>
-                            Fecha
+                            Taxa
                         </label>
-                        {{Form::text('hora_fecha',null,['class'=>'form-control timepicker','placeholder'=>'Fecha'])}}
-                       
+                        {{Form::text('taxa',null,['class'=>'form-control money','placeholder'=>'Taxa'])}}
+
+                        
                     </div>
                 </div>
             </div>
