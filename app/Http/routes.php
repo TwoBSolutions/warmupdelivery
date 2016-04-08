@@ -23,7 +23,9 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::group(['prefix' => ''], function () {
         Route::get('', function () {
-            return view('coming.index');
+            return view('site.home');
+            
+            // return view('coming.index');
 
         });
 
