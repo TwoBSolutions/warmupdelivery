@@ -257,6 +257,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
         });
         Route::group(['prefix' => 'produtos'], function () {
             Route::get('', ['as' => 'api.produtos', 'uses' => 'ProdutoController@jsonAll']);
+            Route::get('search/{query}', ['as' => 'api.produtos.search', 'uses' => 'ProdutoController@search']);
             Route::get('{id}', ['as' => 'api.produto', 'uses' => 'ProdutoController@jsonGet']);
             Route::get('categorias', ['as' => 'api.produto', 'uses' => 'CategoriaController@jsonAll']);
 

@@ -54,6 +54,17 @@ class ProdutoController extends Controller
         ->get();
     }
 
+    public function search($query){
+
+        $result =AppProdutos::join('precos','precos.id','=','produtos.id_preco')
+        ->select('produtos.*','precos.valor');
+        $result->where('produtos.titulo','like','%'.$query.'%');
+
+        return $result->paginate(10);
+
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
